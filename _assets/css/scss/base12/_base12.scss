@@ -1,0 +1,118 @@
+/*! 
+**	Base12 - http://base12.git.io - Last Update: August 7, 2013
+==================================================================================== */
+
+/*  Define your stylesheet
+------------------------------------------------------------------------------ */
+
+// Fonts
+$font-heading: 'atrament-web', serif;
+$font-body-copy: 'jubilat', 'Impact', sans-serif;
+
+
+// Basic colors
+$color-bg: 				#FBFBFB;
+$color-font-heading: 	#303030;
+$color-font-body: 		#202020;
+$color-selection: 		#B3D4FC;
+
+
+// Links colors
+$color-links: 			#1B4781;
+$color-links-h: 		#C04620;
+$color-links-a: 		#000000;
+$color-links-v: 		$color-links;
+
+
+// Borders 
+$border: 				1px solid #DADADA;
+$border-focus: 			1px solid #C04620;
+
+
+// Table colors
+$table-bg: 				transparent;
+$table-border: 			none;
+
+$th-bg: 				transparent;
+$th-color: 				$color-font-body;
+$th-border: 			$border;
+
+$tr-odd: 				transparent;
+$tr-even: 				transparent;
+$tr-border: 			$border;
+
+
+// Button colors
+$btn-primary: 			#1B4781;
+$btn-primary-text: 		#FBFBFB;
+
+$btn-hover: 			#202020;
+$btn-hover-text: 		#FBFBFB;
+
+$btn-active: 			#C04620;
+$btn-active-text: 		#FFFFFF;
+
+$btn-disabled: 			#DADADA;
+$btn-disabled-text: 	#EBEBEB;
+
+
+// Forms
+$field-bg: 				#FBFBFB;
+$field-bg-focus: 		#FFFFFF;
+
+$field-color: 			#444444;
+$field-color-focus: 	#202020;
+
+
+// Fonts
+$base-font-size: 		12px; 	// Preferably in pxs
+$base-line-height: 		1.62em; // Preferably in ems
+
+
+// Headings - Define in pxs
+$fs-h1: 60px; 
+$lh-h1: 63px; 
+
+$fs-h2: 36px; 
+$lh-h2: 42px; 
+
+$fs-h3: 27px; 
+$lh-h3: 33px; 
+
+$fs-h4: 21px; 
+$lh-h4: 27px; 
+
+$fs-h5: 15px; 
+$lh-h5: 21px; 
+
+$fs-h6: 12px; 
+$lh-h6: 18px; 
+
+// p, ul, ol, etc  - Define in pxs
+$fs-body: 15px;
+$lh-body: 21px;
+
+// .lead, blockquote - Define in pxs
+$fs-body-accent: 18px;
+$lh-body-accent: 24px;
+
+// Default font weight when bold
+$font-weight-bold: 600;
+
+
+/*  Helpers & Formulas
+------------------------------------------------------------------------------ */
+
+// Mixins
+@import
+	  "formulas/mixin-em"
+	, "formulas/mixin-rem"
+	, "formulas/mixin-transition";
+
+// Base12
+@import
+	  "base/normalize"
+	, "base/base"
+	, "base/helpers"
+	, "base/modifiers";
+
