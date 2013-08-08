@@ -32,7 +32,7 @@ Developed by [GrowDigital](https://gist.github.com/growdigital/1778907). This fo
 ```
 
 #### em()
-An adaptation of [GrowDigital](https://gist.github.com/growdigital/1778907)'s mixin. This formula returns 1 lines of code and is mainly built for `line-height`s.
+An adaptation of [GrowDigital](https://gist.github.com/growdigital/1778907)'s mixin. This formula returns 1 line of code and is mainly used when setting `line-heights`.
 
 ```scss
 // Mixin Syntax
@@ -46,7 +46,7 @@ An adaptation of [GrowDigital](https://gist.github.com/growdigital/1778907)'s mi
 ```
 
 #### transition()
-A very basic CSS3 transition mixin. Enter your values as desired and it will output the code with prefixes. 
+A VERY basic CSS3 transition mixin. Enter your values as desired and it will output the code with prefixes. 
 
 ```scss
 // Mixin Syntax
