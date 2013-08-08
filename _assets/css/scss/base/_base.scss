@@ -125,14 +125,18 @@ address {
 hr { 
 	display: block; 
 	width: 100%; height: 0; 
-	margin: -1px 0 24px; 
-	margin: -1px 0 2em; padding: 0; 
-	border: 0; border-top: $border; }
+	border: 0; border-top: $border; 
+	@include rem('margin', 24px 0); padding: 0; }
 
 
-/*  Images
+/*  Images & Media
+ *  Remove the gap between images, videos, audio and canvas and the bottom of 
+ *  their containers: h5bp.com/i/440
 ------------------------------------------------------------------------------ */
-img { vertical-align:middle; }
+audio,
+canvas,
+img,
+video { vertical-align:middle; }
 
 
 /*  Tables

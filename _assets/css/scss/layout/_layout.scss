@@ -1,0 +1,75 @@
+/*  Layout
+=======================================================================================
+	Put all your layout and design related styles here.
+==================================================================================== */
+
+.content { width: 708px; padding: 2rem; }
+.sidebar { width: 240px; padding: 0; }
+.content, .sidebar { float:left; margin-bottom:0; margin: 0 0 1rem; }
+
+.container.no-sidebar .content { width: 948px; }
+
+.wrapper,
+.container {
+	width: 996px;
+	margin: 0 auto; 
+	@extend .cf; 
+}
+
+.container { 
+	background: #FFFFFF;
+	margin: 0 auto 2rem;
+	box-shadow: 0 2px 6px rgba(0,0,0,.1); 
+	border-radius: 0 0 6px 6px;
+
+	& > *:last-child{ margin-bottom: 0; } }
+
+.container-responsive {
+	@extend .container;
+	width: 90%; }
+
+// Top bar
+.top-bar {
+	font-family: $font-heading;
+	background:#202020; color: #FBFBFB;
+	
+	a { color: #FBFBFB; text-decoration: none; }
+	
+	.site-title { 
+		display: block; float: left;
+		margin: 1rem;
+		font-size: 4rem; line-height: 4rem; 
+		font-weight: 600; 
+
+		.b12 { color: #FF9944; } }
+	
+	.global-navigation {
+		float:right; 
+		margin: 0; padding: 0;
+
+		& > li { 
+			float: left; 
+			margin: 0; padding: 1rem; 
+			list-style: none; 
+			font-size: 2rem; line-height: 4rem; } } }
+
+
+// Sidebar
+.sidebar { }
+
+ul.local-navigation { 
+	margin: 24px 0 0; padding: 0; 
+
+	li { 
+		margin: 0; padding: 0; 
+		list-style:none; 
+
+		a { 
+			display:block; 
+			text-decoration: none; 
+			margin:0 1rem; padding: 1rem 1rem; 
+			border-bottom:1px solid #DADADA; 
+			
+			&:hover { color:#FF9944; } }
+		
+		&:last-child a { border-bottom:0; } } }

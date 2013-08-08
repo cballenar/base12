@@ -5,6 +5,10 @@
 	more on making things visually interest and are less about the function.
 =========================================================================== */
 
+// Floats
+.pull-left 	{ float: left;  }
+.pull-right { float: right; }
+
 // Imitate heading
 .h1 { @extend h1; }
 .h2 { @extend h2; }
