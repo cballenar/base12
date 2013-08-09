@@ -88,8 +88,7 @@ dl {
 		@include em($fs-body, 'line-height', $lh-body); }
 	
 	dt { 
-		font-weight: 500; 
-		padding: 0; 
+		font-weight: $font-weight-bold; 
 		@include rem('padding', 12px 0 0); }
 	
 	dd { margin: 0; padding: 0; } }
@@ -114,13 +113,14 @@ small { font-size: .75em; }
 strong { font-weight: $font-weight-bold; }
 
 code, sub, sup { line-height: 0; }
+pre { @include rem('margin', 0 0 24px); }
 
 abbr { border-bottom: 1px dotted #333; }
 
 address { 
 	font-style:italic; 
 	@include body-copy; 
-	@include rem('margin', 0 0 24px); }
+	@include rem('margin', 12px 0 24px); }
 
 hr { 
 	display: block; 
@@ -137,156 +137,3 @@ audio,
 canvas,
 img,
 video { vertical-align:middle; }
-
-
-/*  Tables
------------------------------------------------------------------------------- */
-table { 
-	width: 100%; 
-	border: $table-border; 
-	background: $table-bg;
-	@include rem('margin', 0 0 24px); }
-
-th, td { 
-	@include body-copy;
-	vertical-align: top; 
-	border-top: $border; 
-
-	@include rem('padding', 12px 6px); }
-
-thead > tr > th { }
-
-th,
-thead th, { 
-	text-align: left; 
-	vertical-align: bottom; 
-	color: $th-color; 
-	background: $th-bg; 
-	font-weight: $font-weight-bold; }
-
-caption + thead,
-colgroup + thead,
-thead:first-child,
-tbody:first-child {
-	tr:first-child {
-		th, td { border-top: 0; } } }
-
-tbody tr {
-	&:nth-child(2n) td { background: $tr-even; }
-	&:nth-child(2n+1) td { background: $tr-odd; } }
-
-tbody:last-child td,
-tfoot:last-child td { 
-	*:first-child { margin-top: 0; }
-	*:last-child { margin-bottom: 0; } }
-
-
-
-
-
-/*  Blockquotes
------------------------------------------------------------------------------- */
-blockquote { 
-	quotes: none; 
-
-	border: $border;
-	@include rem('border-width', 0 0 0 6px);
-
-	@include rem('font-size', $fs-body-accent);
-	@include em('line-height', $fs-body-accent, $lh-body-accent); 
-	
-	@include rem('padding', 12px 24px); @include rem('margin', 0 0 24px);
-
-	&:before, 
-	&:after { content: ''; content: none; } 
-
-	p { font-size: 1em; } }
-
-
-/*  Form Elements
------------------------------------------------------------------------------- 
-	Thanks to Dave Gamache for Skeleton [https://github.com/dhg/Skeleton]
------------------------------------------------------------------------------- */
-form,
-fieldset { 
-	@include rem('margin-bottom', 24px);
-	@extend .cf; }
-
-input[type="text"], 
-input[type="email"], 
-input[type="password"], 
-textarea, 
-select {
-	display: block;
-	width: 210px; max-width: 100%;
-
-	@include rem('margin', 0 0 24px);
-	@include rem('padding', 6px); 
-
-	outline: none;
-	border-radius: 3px;
-	
-	border: $border;
-	background: $field-bg; 
-	color: $field-color; }
-
-select { padding: 0; }
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-	border: $border-focus;
-	background: $field-bg-focus; 
-	color: $field-color-focus; 
-	box-shadow: inset 1px 1px 2px rgba(0,0,0,.2); }
-
-textarea {
-	min-height: 60px; 
-	resize: vertical; }
-
-label, legend {
-	display: block;
-	font-weight: $font-weight-bold;
-	@include rem('font-size', 18px);}
-
-select {
-	width: 220px; }
-
-input[type="checkbox"] {
-	display: inline; }
-
-label span,
-legend span {
-	font-weight: normal;
-	@include rem('font-size', 15px);}
-
-
-/*  Buttons
------------------------------------------------------------------------------- */
-button,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
-
-	display: inline-block; cursor: pointer;
-
-	@include rem('margin', 0 6px 6px 0);
-	@include rem('padding', 6px 24px);
-
-	@include rem('font-size', 12px);
-	@include em('line-height', 12px, 24px);
-
-	font-weight: $font-weight-bold; 
-	text-transform: uppercase; text-align:center; 
-
-	background: $btn-primary; color: $btn-primary-text; 
-
-	border: none; 
-
-	&:hover { background: $btn-hover; color: $btn-hover-text; }
-	&:active { background: $btn-active; color: $btn-active-text; } }
-
-// Fix for odd Mozilla border & padding issues
-button::-moz-focus-inner,
-input::-moz-focus-inner { border: 0; padding: 0; }

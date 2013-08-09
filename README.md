@@ -1,7 +1,7 @@
 # Base12
-__A simple framework built around the number 12__
+__A SCSS framework built around the number 12__
 
-_Base12_ is a CSS + SCSS layer for the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/) to provide the basic elements but leave the playground open wide. It is currently using the CSS in it so feel free to replace the entire `css` folder.
+_Base12_ is a SCSS framework for the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/) to help provide some basic styles but still leave the playground open for a highly customized design.
 
 An important aspect of Base12 is that by default it's measurements are all based on the number 12. Since 12 is divisible by 2, 3, 4, 6, and 12, it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.
 
@@ -31,82 +31,50 @@ This is done through the `main.scss` file. In here you will find variables for c
     $color-links-a:         #000000;
     $color-links-v:         $color-links;
 
-
-    // Borders 
-    $border:                1px solid #DADADA;
-    $border-focus:          1px solid #C04620;
-
-
-    // Table colors
-    $table-bg:              transparent;
-    $table-border:          none;
-
-    $th-bg:                 transparent;
-    $th-color:              $color-font-body;
-    $th-border:             $border;
-
-    $tr-odd:                transparent;
-    $tr-even:               transparent;
-    $tr-border:             $border;
-
-
-    // Button colors
-    $btn-primary:           #1B4781;
-    $btn-primary-text:      #FBFBFB;
-
-    $btn-hover:             #202020;
-    $btn-hover-text:        #FBFBFB;
-
-    $btn-active:            #C04620;
-    $btn-active-text:       #FFFFFF;
-
-    $btn-disabled:          #DADADA;
-    $btn-disabled-text:     #EBEBEB;
-
-
-    // Forms
-    $field-bg:              #FBFBFB;
-    $field-bg-focus:        #FFFFFF;
-
-    $field-color:           #444444;
-    $field-color-focus:     #202020;
-
-
-    // Fonts
-    $base-font-size:        12px;   // Preferably in pxs
-    $base-line-height:      1.62em; // Preferably in ems
-
-
-    // Headings - Define in pxs
-    $fs-h1: 60px; 
-    $lh-h1: 63px; 
-
-    $fs-h2: 36px; 
-    $lh-h2: 42px; 
-
-    $fs-h3: 27px; 
-    $lh-h3: 33px; 
-
-    $fs-h4: 21px; 
-    $lh-h4: 27px; 
-
-    $fs-h5: 15px; 
-    $lh-h5: 21px; 
-
-    $fs-h6: 12px; 
-    $lh-h6: 18px; 
-
-    // p, ul, ol, etc  - Define in pxs
-    $fs-body: 15px;
-    $lh-body: 21px;
-
-    // .lead, blockquote - Define in pxs
-    $fs-body-accent: 18px;
-    $lh-body-accent: 24px;
-
-    // Default font weight when bold
-    $font-weight-bold: 600;
+    // etc...
 ```
+
+## Structure
+The directory structure is as follows:
+```
+|- css/
+|   |- main.css
+|   |- scss/
+|   |   |- main.scss
+|   |   |- base/
+|   |   |- design/
+|   |   |- formulas/
+|   |   |- helpers/
+|   |   |- media/
+|   |   |- modules/
+|   |   |- vendors/
+```
+#### main.css
+Compressed output file.
+
+#### main.scss
+Here you will find all the variables and imported partials.
+
+#### base/
+The base folder contains 2 files, `base` and `normalize`. [Normalize](http://necolas.github.io/normalize.css/) is the reset sheet. Base is the primary file in Base12, this is where most variables end up in and defines most basic styles. Ideally these files will remain untouched unless a new release comes out.
+
+#### design/
+It contains two files `design` and `modifiers`. Design, as you can imagine, is where all the styles that define the design of the site are located. Modifiers are "element modifiers" they are simple classes that change existing elements, this includes things such as `blockquote.pull-quote` or `button.disabled`. In here you will also find the basic styles for the following elements: tables, blockquotes, form elements, and buttons. I realized that these elements can be highly customized and should be easy to update independently from the `base` files. Notice that the `modifiers` sheet comes before the `design` sheet when imported, this is because the modifiers are meant to come right after the `base` stylesheet.
+
+#### formulas/
+Contains mixins and formulas used in Base12, users should keep their own formulas in this folder.
+
+#### helpers/
+As expected it contains helper classes, unlike `modifiers`, these helpers focus more on the function rather than the visual.
+
+#### media/
+It contains all the media queries and stylesheet for other media, such as print and for higher resolution screens. I wasn't sure what to name this folder, I don't think media is the best name for it. 
+
+#### modules/
+We all love Object Oriented CSS, right? This is where we get to put all those sweet modules we gather from across the webiverse! (?). I would recommend keeping the modules in their own files and then `@import` them into the `modules` stylesheet for easy management.
+
+#### vendors/
+Styles from plugins and third-party vendors. Also keep as separate files and `@import` into `vendors` stylesheet.
 
 ## Goodies
 

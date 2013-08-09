@@ -1,0 +1,241 @@
+/*  Basic Modifiers
+============================================================================== 
+	The following styles build upon the core elements and add some 
+	interesting visual modifications. Unlike Helpers, these elements focus
+	more on making things visually interest and are less about the function.
+=========================================================================== */
+
+/*  Floats
+------------------------------------------------------------------------------ */
+.pull-left 	{ float: left;  }
+.pull-right { float: right; }
+
+
+/*  Headers
+------------------------------------------------------------------------------ */
+.h1 { @extend h1; }
+.h2 { @extend h2; }
+.h3 { @extend h3; }
+.h4 { @extend h4; }
+.h5 { @extend h5; }
+.h6 { @extend h6; }
+
+.subheader { color: #777; }
+
+
+/*  Paragraphs
+------------------------------------------------------------------------------ */
+p { 
+	&.lead { 
+		color: #777; 
+		@include rem('font-size', $fs-body-accent);
+		@include em('line-height', $fs-body-accent, $lh-body-accent); } }
+
+
+/*  Text Modifiers
+------------------------------------------------------------------------------ */
+.lowercase  { text-transform: lowercase; }
+.uppercase  { text-transform: uppercase; }
+.small-caps { font-variant: small-caps; }
+
+// Align
+.text-left 		{ text-align: left;   }
+.text-center 	{ text-align: center; }
+.text-right 	{ text-align: right;  }
+
+
+/*  Modifiers for Images
+------------------------------------------------------------------------------ */
+img {
+	&.img-scaled {
+		max-width: 100%;
+		height: auto; } 
+
+	&.img-bordered { 
+		padding: 2px; 
+		border: $border; } 
+
+	&.img-circle {
+		border-radius: 100%; } }
+
+/*  Tables
+------------------------------------------------------------------------------ */
+table { 
+	width: 100%; 
+	border: $table-border; 
+	background: $table-bg;
+	@include rem('margin', 0 0 24px); }
+
+th, td { 
+	@include body-copy;
+	vertical-align: top; 
+	border-top: $border; 
+
+	@include rem('padding', 12px 6px); }
+
+thead > tr > th { }
+
+th,
+thead th, { 
+	text-align: left; 
+	vertical-align: bottom; 
+	color: $th-color; 
+	background: $th-bg; 
+	font-weight: $font-weight-bold; }
+
+caption + thead,
+colgroup + thead,
+thead:first-child,
+tbody:first-child {
+	tr:first-child {
+		th, td { border-top: 0; } } }
+
+tbody tr {
+	&:nth-child(2n) td { background: $tr-even; }
+	&:nth-child(2n+1) td { background: $tr-odd; } }
+
+tbody:last-child td,
+tfoot:last-child td { 
+	*:first-child { margin-top: 0; }
+	*:last-child { margin-bottom: 0; } }
+
+
+/*  Blockquotes
+------------------------------------------------------------------------------ */
+blockquote { 
+	quotes: none; 
+
+	@include rem('font-size', $fs-body-accent);
+	@include em('line-height', $fs-body-accent, $lh-body-accent); 
+	@include rem('margin', 0 0 24px); @include rem('padding', 12px 24px); 
+
+	border: $border;
+	@include rem('border-width', 0 0 0 6px);
+
+	&:before, 
+	&:after { content: ''; content: none; } 
+
+	p { font-size: 1em; } 
+
+
+	// Alternative style for blockquote
+	&.pull-quote { 
+		border: 1px solid #EBEBEB; border-width:1px 0; 
+		margin: 24px 0; padding: 12px 24px 12px 60px;
+
+		p { 
+			margin: 0; 
+			color: #4C4C4C; 
+			@include rem('font-size', 21px);
+			@include em('line-height', 21px, 27px); }
+
+		cite { 
+			font-style: italic; 
+			text-align:right; 
+			@include rem('font-size', 15px);
+			@include em('line-height', 18px, 15px);
+
+			@include rem('margin', 6px 0 0); }
+
+		& > *:last-child { margin-bottom:0; } } }
+
+
+/*  Form Elements
+------------------------------------------------------------------------------ 
+	Thanks to Dave Gamache for Skeleton [https://github.com/dhg/Skeleton]
+------------------------------------------------------------------------------ */
+form,
+fieldset { 
+	@include rem('margin-bottom', 24px);
+	@extend .cf; }
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+textarea, 
+select {
+	display: block;
+	width: 210px; max-width: 100%;
+
+	@include rem('margin', 0 0 24px);
+	@include rem('padding', 6px); 
+
+	outline: none;
+	border-radius: 3px;
+	
+	border: $border;
+	background: $field-bg; 
+	color: $field-color; }
+
+select { padding: 0; }
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+	border: $border-focus;
+	background: $field-bg-focus; 
+	color: $field-color-focus; 
+	box-shadow: inset 1px 1px 2px rgba(0,0,0,.2); }
+
+textarea {
+	min-height: 60px; 
+	resize: vertical; }
+
+label, legend {
+	display: block;
+	font-weight: $font-weight-bold;
+	@include rem('font-size', 18px);}
+
+select {
+	width: 220px; }
+
+input[type="checkbox"] {
+	display: inline; }
+
+label span,
+legend span {
+	font-weight: normal;
+	@include rem('font-size', 15px);}
+
+
+/*  Buttons
+------------------------------------------------------------------------------ */
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+
+	display: inline-block; cursor: pointer;
+
+	font-family: $font-heading;
+	font-weight: $font-weight-bold; 
+	text-transform: uppercase; text-align:center; 
+	@include rem('font-size', 12px);
+	@include em('line-height', 12px, 24px);
+
+	border: none; 
+	@include rem('margin', 0 6px 6px 0);
+	@include rem('padding', 6px 24px);
+
+	background: $btn-primary; color: $btn-primary-text; 
+
+	&:hover { background: $btn-hover; color: $btn-hover-text; }
+	&:active { background: $btn-active; color: $btn-active-text; } 
+
+
+	// Disabled - usually a grayed out button
+	&.disabled { 
+		color: $btn-disabled; background: $btn-disabled-text; }
+
+
+	// Full Width
+	&.full-width { 
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; } }
+
+// Fix for odd Mozilla border & padding issues
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; }

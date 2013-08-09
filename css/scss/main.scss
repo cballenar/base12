@@ -109,8 +109,7 @@
 	, "formulas/mixin-transition"
 
 	, "base/normalize"
-	, "base/base"
-	, "base/modifiers";
+	, "base/base";
 
 
 /*!  
@@ -118,7 +117,8 @@
 ==================================================================================== 
 */
 @import
-	  "layout/layout"
+	  "design/modifiers"
+	, "design/design"
 	, "modules/modules";
 
 

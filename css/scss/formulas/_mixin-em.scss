@@ -14,11 +14,14 @@
 	rem() - By GrowDigital [ https://gist.github.com/growdigital/1778907 ]
 ==================================================================================== */
 
-@mixin em($property, $context, $px_values) {
-	
+@mixin em($property, $context_px, $px_values) {
+
+	// Convert the baseline into rems
+	$context_em: ($context_px / 1em);
+
 	// If only one (numeric) value, return the property/value line for it.
 	@if type-of($px_values) == 'number' {
-		#{$property}: $px_values / $context;
+		#{$property}: $px_values / $context_em;
 	}
 	
 	// If more than one value, create list & perform equations on each value
@@ -32,7 +35,7 @@
 			}
 			// If the value is not zero, convert it from px to em
 			@else {
-				$em_values: append($em_values, ($value / $context) );
+				$em_values: append($em_values, ($value / $context_em) );
 			}
 		}
 		// Return the property and its list of converted values
