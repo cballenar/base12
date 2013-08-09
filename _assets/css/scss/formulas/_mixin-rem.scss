@@ -1,19 +1,18 @@
-/*! 
- * rem() - By GrowDigital [ https://gist.github.com/growdigital/1778907 ]
- *
- * 'rem' is a Sass mixin that converts pixel values to rem values
- * Returns 2 lines of code — regular pixel values and converted rem values 
- * 
- * Sample input:
- * .element { 
- * @include rem('padding',10px 0 2px 5px); }
- * 
- * Sample output:
- * .element {
- *   padding: 10px 0 2px 5px;
- *   padding: 1rem 0 0.2rem 0.5rem; }
- */
- 
+/*
+**	rem() - By GrowDigital [ https://gist.github.com/growdigital/1778907 ]
+====================================================================================
+	'rem' is a Sass mixin that converts pixel values to rem values
+	Returns 2 lines of code — regular pixel values and converted rem values 
+	
+	Sample input:
+		.element { @include rem('padding',10px 0 2px 5px); }
+	
+	Sample output:
+		.element {
+			padding: 10px 0 2px 5px;
+			padding: 1rem 0 0.2rem 0.5rem; }
+==================================================================================== */
+
 // Baseline, measured in pixels
 // Value should be same as font-size value for the html element
 // If html element's font-size set to 62.5% (of the browser's default 16px),
