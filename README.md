@@ -1,9 +1,12 @@
-# Base12
+# [Base12](http://cballenar.github.io/base12/)
 __A SCSS framework built around the number 12__
 
 _Base12_ is a SCSS framework for the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/) to help provide some basic styles but still leave the playground open for a highly customized design.
 
 An important aspect of Base12 is that by default it's measurements are all based on the number 12. Since 12 is divisible by 2, 3, 4, 6, and 12, it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.
+
+ - Source: [https://github.com/cballenar/base12](https://github.com/cballenar/base12)
+ - Homepage: [http://cballenar.github.io/base12/](http://cballenar.github.io/base12/)
 
 ## Customizing Base12
 The boilerplate allows you to do some basic and, I must admit, not so polished customizations. 
