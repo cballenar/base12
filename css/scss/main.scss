@@ -7,12 +7,12 @@
 ==================================================================================== */
 
 	// Fonts
-	$font-heading: 'atrament-web', serif;
-	$font-body-copy: 'jubilat', 'Impact', sans-serif;
+	$font-heading: 'Helvetica', sans-serif;
+	$font-body-copy: 'Times New Roman', Times, serif;
 
 
 	// Basic colors
-	$color-bg: 				#EBEBEB;
+	$color-bg: 				#FFFFFF;
 	$color-font-heading: 	#303030;
 	$color-font-body: 		#202020;
 	$color-selection: 		#B3D4FC;
@@ -20,14 +20,14 @@
 
 	// Links colors
 	$color-links: 			#1B4781;
-	$color-links-h: 		#C04620;
-	$color-links-a: 		#000000;
+	$color-links-h: 		#000000;
+	$color-links-a: 		#DD4B39;
 	$color-links-v: 		$color-links;
 
 
 	// Borders 
 	$border: 				1px solid #DADADA;
-	$border-focus: 			1px solid #C04620;
+	$border-focus: 			1px solid #303030;
 
 
 	// Table colors
@@ -44,13 +44,13 @@
 
 
 	// Button colors
-	$btn-primary: 			#1B4781;
-	$btn-primary-text: 		#FBFBFB;
+	$btn-primary: 			#4d90fe;
+	$btn-primary-text: 		#FFFFFF;
 
-	$btn-hover: 			#202020;
+	$btn-hover: 			#357AE8;
 	$btn-hover-text: 		#FBFBFB;
 
-	$btn-active: 			#C04620;
+	$btn-active: 			#DD4B39;
 	$btn-active-text: 		#FFFFFF;
 
 	$btn-disabled: 			#DADADA;
@@ -71,8 +71,8 @@
 
 
 	// Headings - Define in pxs
-	$fs-h1: 60px; 
-	$lh-h1: 63px; 
+	$fs-h1: 48px; 
+	$lh-h1: 51px; 
 
 	$fs-h2: 36px; 
 	$lh-h2: 42px; 

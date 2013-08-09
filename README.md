@@ -1,15 +1,9 @@
 # Base12
-_A simple framework focused on CSS and built around the number 12._
+_A simple framework built around the number 12_
 
-Frameworks are awesome, they can give you a huge headstart when building a new site, getting rid of a lot of the repetitive work and letting you focus on the fun stuff. However, there is no framework that fits every project, not even this one.
+_Base12_ is a CSS + SCSS layer for the H5BP to provide the basic elements but leave the playground open wide. It is currently using the CSS in it so feel free to replace the entire `css` folder.
 
-While working with other boilerplates such as the [_Twitter Bootstrap_](https://github.com/twbs/bootstrap/), I realized that they were too busy for __custom designs__. While they are great for quick prototyping of an app, and can certainly create entire websites in a snap, a custom design may need to break away from a lot of the patterns in the framework; often resulting in unnecessary code, work arounds, and bad practices. There is the other side of course, the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/) was too basic, it often required the addition of basic styles which repeated across projects. _Base12_ sits at a middle ground where it has the basic elements but still leaves the playground open.
-
-Another side of _Base12_, is how its measurements are built. They're all tied to the number 12. While this may not come naturally to everyone, due to our _decimal system_ I encourage you to give it a shot. After some research I realized that a _duodecimal system_ has a lot to offer when it comes to, not only creating grids but setting numbers across your design. Since 12 is divisible by 2, 3, 4, 6, and 12, it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.
-
-_Base12_ is not a replacement to the _HTML5 Boilerplate_, but a  layer to it. It is currently using the CSS in it so feel free to replace the entire `css` folder.
-
-_Base12_ will continue to evolve as more common elements that should be added are found. In the meantime this is a good start.
+An important aspect of Base12 is that by default it's measurements are all based on the number 12. Since 12 is divisible by 2, 3, 4, 6, and 12, it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.
 
 ## Customizing Base12
 The boilerplate allows you to do some basic and, I must admit, not so polished customizations. 
