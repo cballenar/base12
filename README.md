@@ -1,5 +1,5 @@
 # Base12
-_A simple framework built around the number 12_
+__A simple framework built around the number 12__
 
 _Base12_ is a CSS + SCSS layer for the H5BP to provide the basic elements but leave the playground open wide. It is currently using the CSS in it so feel free to replace the entire `css` folder.
 
