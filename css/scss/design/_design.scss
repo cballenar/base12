@@ -27,9 +27,7 @@
 		@include em('line-height', 120px, 102px);
 
 		font-weight: 600; 
-		text-align: center;
-
-		.b12 { color: #F0750F; } } 
+		text-align: center; } 
 
 	.subheader { display:none; } }
 
@@ -49,6 +47,7 @@
 	height:48px; 
 	background: #202020; color: #EBEBEB; 
 	
+	p.bragging-rights { display:none; }
 	p { 
 		@include rem('font-size', 18px);
 		@include em('line-height', 18px, 48px); 
@@ -60,3 +59,6 @@
 			i { font-size: 1.25em; top: .025em; }
 			&:hover { color: $color-links-h; } } } }
 
+// Misc Globals
+.b12 { color: #F0750F; } 
+a:hover > .b12 { color: $color-links-h; }

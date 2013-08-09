@@ -1,5 +1,5 @@
 /* 
-**	Base12 - http://base12.git.io - Last Update: August 8, 2013
+**	Base12 v0.2-beta - Updated: August 9, 2013 - http://cballenar.github.io/base12/
 ==================================================================================== 
 */
 /*  Define your Style
@@ -629,8 +629,7 @@ dl {
     font-size: 1.25rem;
     15px: 21px/"line-height"/1em; }
   dl dt {
-    font-weight: 500;
-    padding: 0;
+    font-weight: 600;
     padding: 12px 0 0;
     padding: 1rem 0 0; }
   dl dd {
@@ -669,6 +668,10 @@ strong {
 code, sub, sup {
   line-height: 0; }
 
+pre {
+  margin: 0 0 24px;
+  margin: 0 0 2rem; }
+
 abbr {
   border-bottom: 1px dotted #333; }
 
@@ -677,8 +680,8 @@ address {
   font-size: 15px;
   font-size: 1.25rem;
   line-height: 1.4em;
-  margin: 0 0 24px;
-  margin: 0 0 2rem; }
+  margin: 12px 0 24px;
+  margin: 1rem 0 2rem; }
 
 hr {
   display: block;
@@ -699,6 +702,68 @@ canvas,
 img,
 video {
   vertical-align: middle; }
+
+/*  
+**	Author's Styles
+==================================================================================== 
+*/
+/*  Basic Modifiers
+============================================================================== 
+	The following styles build upon the core elements and add some 
+	interesting visual modifications. Unlike Helpers, these elements focus
+	more on making things visually interest and are less about the function.
+=========================================================================== */
+/*  Floats
+------------------------------------------------------------------------------ */
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+/*  Headers
+------------------------------------------------------------------------------ */
+.subheader {
+  color: #777; }
+
+/*  Paragraphs
+------------------------------------------------------------------------------ */
+p.lead {
+  color: #777;
+  font-size: 18px;
+  font-size: 1.5rem;
+  line-height: 1.33333em; }
+
+/*  Text Modifiers
+------------------------------------------------------------------------------ */
+.lowercase {
+  text-transform: lowercase; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.small-caps {
+  font-variant: small-caps; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+/*  Modifiers for Images
+------------------------------------------------------------------------------ */
+img.img-scaled {
+  max-width: 100%;
+  height: auto; }
+img.img-bordered {
+  padding: 2px;
+  border: 1px solid #dadada; }
+img.img-circle {
+  border-radius: 100%; }
 
 /*  Tables
 ------------------------------------------------------------------------------ */
@@ -751,21 +816,42 @@ tfoot:last-child td *:last-child {
 ------------------------------------------------------------------------------ */
 blockquote {
   quotes: none;
-  border: 1px solid #dadada;
-  border-width: 0 0 0 6px;
-  border-width: 0 0 0 0.5rem;
   font-size: 18px;
   font-size: 1.5rem;
   line-height: 1.33333em;
+  margin: 0 0 24px;
+  margin: 0 0 2rem;
   padding: 12px 24px;
   padding: 1rem 2rem;
-  margin: 0 0 24px;
-  margin: 0 0 2rem; }
+  border: 1px solid #dadada;
+  border-width: 0 0 0 6px;
+  border-width: 0 0 0 0.5rem; }
   blockquote:before, blockquote:after {
     content: '';
     content: none; }
   blockquote p {
     font-size: 1em; }
+  blockquote.pull-quote {
+    border: 1px solid #EBEBEB;
+    border-width: 1px 0;
+    margin: 24px 0;
+    padding: 12px 24px 12px 60px; }
+    blockquote.pull-quote p {
+      margin: 0;
+      color: #4C4C4C;
+      font-size: 21px;
+      font-size: 1.75rem;
+      line-height: 1.28571em; }
+    blockquote.pull-quote cite {
+      font-style: italic;
+      text-align: right;
+      font-size: 15px;
+      font-size: 1.25rem;
+      line-height: 0.83333em;
+      margin: 6px 0 0;
+      margin: 0.5rem 0 0; }
+    blockquote.pull-quote > *:last-child {
+      margin-bottom: 0; }
 
 /*  Form Elements
 ------------------------------------------------------------------------------ 
@@ -837,19 +923,20 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   cursor: pointer;
+  font-family: "atrament-web", "Impact", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 12px;
+  font-size: 1rem;
+  line-height: 2em;
+  border: none;
   margin: 0 6px 6px 0;
   margin: 0 0.5rem 0.5rem 0;
   padding: 6px 24px;
   padding: 0.5rem 2rem;
-  font-size: 12px;
-  font-size: 1rem;
-  line-height: 2em;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
   background: #f0750f;
-  color: #fbfbfb;
-  border: none; }
+  color: #fbfbfb; }
   .button:hover,
   button:hover,
   input[type="submit"]:hover,
@@ -864,154 +951,79 @@ input[type="button"] {
   input[type="button"]:active {
     background: #c04620;
     color: white; }
+  .button.disabled,
+  button.disabled,
+  input[type="submit"].disabled,
+  input[type="reset"].disabled,
+  input[type="button"].disabled {
+    color: #dadada;
+    background: #ebebeb; }
+  .button.full-width,
+  button.full-width,
+  input[type="submit"].full-width,
+  input[type="reset"].full-width,
+  input[type="button"].full-width {
+    width: 100%;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    text-align: center; }
+  .button.press-me,
+  button.press-me,
+  input[type="submit"].press-me,
+  input[type="reset"].press-me,
+  input[type="button"].press-me {
+    font-family: "atrament-web", "Impact", sans-serif;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 21px;
+    font-size: 1.75rem;
+    line-height: 1.14286em;
+    margin: 0 6px 6px 0;
+    margin: 0 0.5rem 0.5rem 0;
+    padding: 12px 24px;
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    border-radius: 0.5rem;
+    color: #fbfbfb;
+    background: #f0750f;
+    box-shadow: 0 6px #c05e0c;
+    -webkit-transition: all 0.1s ease;
+    -moz-transition: all 0.1s ease;
+    -ms-transition: all 0.1s ease;
+    -o-transition: all 0.1s ease;
+    transition: all 0.1s ease; }
+    .button.press-me:hover,
+    button.press-me:hover,
+    input[type="submit"].press-me:hover,
+    input[type="reset"].press-me:hover,
+    input[type="button"].press-me:hover {
+      top: 2px;
+      background: #f28327;
+      box-shadow: 0 4px #c05e0c; }
+    .button.press-me:active,
+    button.press-me:active,
+    input[type="submit"].press-me:active,
+    input[type="reset"].press-me:active,
+    input[type="button"].press-me:active {
+      top: 4px;
+      background: #c04620;
+      box-shadow: 0 2px #943619; }
+    .button.press-me i,
+    button.press-me i,
+    input[type="submit"].press-me i,
+    input[type="reset"].press-me i,
+    input[type="button"].press-me i {
+      top: 2px;
+      font-size: 27px;
+      font-size: 2.25rem;
+      line-height: 0.77778em; }
 
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
-/*  Basic Modifiers
-============================================================================== 
-	The following styles build upon the core elements and add some 
-	interesting visual modifications. Unlike Helpers, these elements focus
-	more on making things visually interest and are less about the function.
-=========================================================================== */
-.pull-left {
-  float: left; }
-
-.pull-right {
-  float: right; }
-
-.subheader {
-  color: #777; }
-
-p.lead {
-  color: #777;
-  font-size: 18px;
-  font-size: 1.5rem;
-  line-height: 1.33333em; }
-
-.text-left {
-  text-align: left; }
-
-.text-center {
-  text-align: center; }
-
-.text-right {
-  text-align: right; }
-
-.lowercase {
-  text-transform: lowercase; }
-
-.uppercase {
-  text-transform: uppercase; }
-
-.small-caps {
-  font-variant: small-caps; }
-
-blockquote.pull-quote {
-  border: 1px solid #EBEBEB;
-  border-width: 1px 0;
-  margin: 24px 0;
-  padding: 12px 24px 12px 60px; }
-  blockquote.pull-quote p {
-    margin: 0;
-    color: #4C4C4C;
-    font-size: 21px;
-    line-height: 27px;
-    font-size: 1.75rem;
-    line-height: 2.25rem; }
-  blockquote.pull-quote cite {
-    font-style: italic;
-    text-align: right;
-    font-size: 15px;
-    font-size: 1.25rem;
-    margin: 6px 0 0;
-    margin: .5rem 0 0; }
-  blockquote.pull-quote > *:last-child {
-    margin-bottom: 0; }
-
-img.img-scaled {
-  max-width: 100%;
-  height: auto; }
-img.img-bordered {
-  padding: 2px;
-  border: 1px solid #dadada; }
-img.img-circle {
-  border-radius: 100%; }
-
-.button.disabled,
-button.disabled,
-input[type="submit"].disabled,
-input[type="reset"].disabled,
-input[type="button"].disabled {
-  color: #dadada;
-  background: #ebebeb; }
-.button.full-width,
-button.full-width,
-input[type="submit"].full-width,
-input[type="reset"].full-width,
-input[type="button"].full-width {
-  width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  text-align: center; }
-.button.press-me,
-button.press-me,
-input[type="submit"].press-me,
-input[type="reset"].press-me,
-input[type="button"].press-me {
-  font-family: "atrament-web", "Impact", sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 21px;
-  font-size: 1.75rem;
-  line-height: 1.14286em;
-  margin: 0 6px 6px 0;
-  margin: 0 0.5rem 0.5rem 0;
-  padding: 12px 24px;
-  padding: 1rem 2rem;
-  border-radius: 6px;
-  border-radius: 0.5rem;
-  color: #fbfbfb;
-  background: #f0750f;
-  box-shadow: 0 6px #c05e0c;
-  -webkit-transition: all 0.1s ease;
-  -moz-transition: all 0.1s ease;
-  -ms-transition: all 0.1s ease;
-  -o-transition: all 0.1s ease;
-  transition: all 0.1s ease; }
-  .button.press-me:hover,
-  button.press-me:hover,
-  input[type="submit"].press-me:hover,
-  input[type="reset"].press-me:hover,
-  input[type="button"].press-me:hover {
-    top: 2px;
-    background: #f28327;
-    box-shadow: 0 4px #c05e0c; }
-  .button.press-me:active,
-  button.press-me:active,
-  input[type="submit"].press-me:active,
-  input[type="reset"].press-me:active,
-  input[type="button"].press-me:active {
-    top: 4px;
-    background: #c04620;
-    box-shadow: 0 2px #943619; }
-  .button.press-me i,
-  button.press-me i,
-  input[type="submit"].press-me i,
-  input[type="reset"].press-me i,
-  input[type="button"].press-me i {
-    top: 2px;
-    font-size: 27px;
-    font-size: 2.25rem;
-    line-height: 0.77778em; }
-
-/*  
-**	Author's Styles
-==================================================================================== 
-*/
 /*  Layout
 =======================================================================================
 	Put all your layout and design related styles here.
@@ -1043,8 +1055,6 @@ input[type="button"].press-me {
     line-height: 0.85em;
     font-weight: 600;
     text-align: center; }
-    .site-header .site-title .b12 {
-      color: #F0750F; }
   .site-header .subheader {
     display: none; }
 
@@ -1064,6 +1074,8 @@ input[type="button"].press-me {
   height: 48px;
   background: #202020;
   color: #EBEBEB; }
+  .site-footer p.bragging-rights {
+    display: none; }
   .site-footer p {
     font-size: 18px;
     font-size: 1.5rem;
@@ -1078,6 +1090,12 @@ input[type="button"].press-me {
         top: .025em; }
       .site-footer p a:hover {
         color: #c04620; }
+
+.b12 {
+  color: #F0750F; }
+
+a:hover > .b12 {
+  color: #c04620; }
 
 /*  Modules
 =======================================================================================
@@ -1212,8 +1230,13 @@ fieldset, .wrapper {
         padding: 0 0 0 12px;
         padding: 0 0 0 1rem; }
 
-  .site-footer p {
-    text-align: right; } }
+  .site-footer p.social-box {
+    float: right;
+    text-align: right; }
+  .site-footer p.bragging-rights {
+    display: block;
+    float: left;
+    text-align: left; } }
 @media print, (-o-min-device-pixel-ratio: 5 / 4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
   /* Style adjustments for high resolution devices */ }
 /* ==========================================================================

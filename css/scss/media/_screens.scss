@@ -39,10 +39,12 @@
 			.inner { @include rem('padding', 0 0 0 12px); } } }
 
 	.site-footer {
-		p { 
-			text-align: right; } }
-
-
+		p.social-box { 
+			float: right; text-align: right; } 
+		
+		p.bragging-rights { 
+			display: block;
+			float: left; text-align: left; } }
 }
 
 @media print,

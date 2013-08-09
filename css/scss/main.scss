@@ -1,5 +1,5 @@
 /*! 
-**	Base12 - http://base12.git.io - Last Update: August 8, 2013
+**	Base12 v0.2-beta - Updated: August 9, 2013 - http://cballenar.github.io/base12/
 ==================================================================================== 
 */
 
@@ -109,8 +109,7 @@
 	, "formulas/mixin-transition"
 
 	, "base/normalize"
-	, "base/base"
-	, "base/modifiers";
+	, "base/base";
 
 
 /*!  
@@ -118,7 +117,8 @@
 ==================================================================================== 
 */
 @import
-	  "layout/layout"
+	  "design/modifiers"
+	, "design/design"
 	, "modules/modules";
 
 
