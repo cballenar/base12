@@ -1034,12 +1034,13 @@ input[type="button"].press-me {
     color: #EBEBEB; }
   .site-header .site-title {
     display: block;
+    height: 96px;
+    height: 8rem;
     margin: 0px;
     margin: 0rem;
     font-size: 120px;
     font-size: 10rem;
-    height: 96px;
-    line-height: 96px;
+    line-height: 0.85em;
     font-weight: 600;
     text-align: center; }
     .site-header .site-title .b12 {

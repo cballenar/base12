@@ -21,10 +21,10 @@
 	
 	.site-title { 
 		display: block;
+		@include rem('height', 96px);
 		@include rem('margin', 0px);
 		@include rem('font-size', 120px);
-		height: 96px;
-		line-height: 96px; 
+		@include em('line-height', 120px, 102px);
 
 		font-weight: 600; 
 		text-align: center;
