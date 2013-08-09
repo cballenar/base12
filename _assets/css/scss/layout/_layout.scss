@@ -1,0 +1,62 @@
+/*  Layout
+=======================================================================================
+	Put all your layout and design related styles here.
+==================================================================================== */
+
+// Basic Wrapper
+.wrapper {
+	width: 100%;
+	margin: 0 auto; 
+	@extend .cf; 
+}
+.inner { @include rem('padding', 0 24px);}
+
+// Site Header
+.site-header {
+	font-family: $font-heading;
+	background:#202020; color: #FBFBFB;
+	overflow: hidden; white-space: nowrap;
+	
+	a { color: #EBEBEB; }
+	
+	.site-title { 
+		display: block;
+		@include rem('margin', 0px);
+		@include rem('font-size', 120px);
+		height: 96px;
+		line-height: 96px; 
+
+		font-weight: 600; 
+		text-align: center;
+
+		.b12 { color: #F0750F; } } 
+
+	.subheader { display:none; } }
+
+// Main Site Content
+.site-content { 
+	@include rem('margin', 24px 0 48px);
+
+	.description-box,
+	.download-box { 
+		@include rem('margin', 0 0 24px);
+
+		*:last-child,
+		&:last-child { margin-bottom: 0; } } }
+
+// Site Footer
+.site-footer {
+	height:48px; 
+	background: #202020; color: #EBEBEB; 
+	
+	p { 
+		@include rem('font-size', 18px);
+		@include em('line-height', 18px, 48px); 
+		font-family: $font-heading; 
+		text-align: center;
+		margin: 0;
+
+		a { color: #EBEBEB; 
+			i { font-size: 1.25em; top: .025em; }
+			&:hover { color: $color-links-h; } } } }
+

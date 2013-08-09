@@ -1,0 +1,52 @@
+/*
+**	rem() - By GrowDigital [ https://gist.github.com/growdigital/1778907 ]
+====================================================================================
+	'rem' is a Sass mixin that converts pixel values to rem values
+	Returns 2 lines of code — regular pixel values and converted rem values 
+	
+	Sample input:
+		.element { @include rem('padding',10px 0 2px 5px); }
+	
+	Sample output:
+		.element {
+			padding: 10px 0 2px 5px;
+			padding: 1rem 0 0.2rem 0.5rem; }
+==================================================================================== */
+
+// Baseline, measured in pixels
+// Value should be same as font-size value for the html element
+// If html element's font-size set to 62.5% (of the browser's default 16px),
+// then variable below would be 10px.
+$baseline_px: $base-font-size;
+ 
+@mixin rem($property, $px_values) {
+	
+	// Convert the baseline into rems
+	$baseline_rem: ($baseline_px / 1rem);
+	
+	// Print the first line in pixel values
+	#{$property}: $px_values;
+	
+	// If only one (numeric) value, return the property/value line for it.
+	@if type-of($px_values) == 'number' {
+		#{$property}: $px_values / $baseline_rem;
+	}
+	
+	// If more than one value, create list & perform equations on each value
+	@else {
+		// Create an empty list that we can dump values into
+		$rem_values: ();
+		@each $value in $px_values {
+			// If the value is zero, return 0
+			@if $value == 0 { 
+				$rem_values: append($rem_values, $value); 
+			}
+			// If the value is not zero, convert it from px to rem
+			@else {
+				$rem_values: append($rem_values, ($value / $baseline_rem) );
+			}
+		}
+		// Return the property and its list of converted values
+		#{$property}: $rem_values;
+	}
+}

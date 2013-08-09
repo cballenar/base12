@@ -1,0 +1,293 @@
+/*  Base Styles
+============================================================================== 
+	The following lines work as a second reset layer. It defines all 
+	typographic elements, basic colors, and styles. 
+=========================================================================== */
+
+/*  Reusable Mixins
+------------------------------------------------------------------------------ */
+@mixin body-copy { @include rem('font-size', $fs-body); @include em('line-height', $fs-body, $lh-body); }
+
+
+/*  Global Styles
+------------------------------------------------------------------------------ */
+* { position:relative; background-repeat: no-repeat; }
+html, body, button, input, select, textarea { color: $color-font-body; }
+
+html { 
+	font-family: 	$font-body-copy; 
+	font-size: 		$base-font-size; 
+	line-height: 	$base-line-height; 
+
+	background: 	$color-bg; 
+
+	* { word-wrap: break-word; } }/* Webkit Text Wrap Fix */
+
+:focus { outline: 0; }
+
+::-moz-selection,
+::selection { background: $color-selection; text-shadow: none; }
+
+
+/*  Headings
+------------------------------------------------------------------------------ */
+h1, h2, h3, h4, h5, h6 { font-family: $font-heading; }
+
+h1 { @include rem('font-size', $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
+h2 { @include rem('font-size', $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
+h3 { @include rem('font-size', $fs-h3); @include em('line-height', $fs-h3, $lh-h3); }
+h4 { @include rem('font-size', $fs-h4); @include em('line-height', $fs-h4, $lh-h4); }
+h5 { @include rem('font-size', $fs-h5); @include em('line-height', $fs-h5, $lh-h5); }
+h6 { @include rem('font-size', $fs-h6); @include em('line-height', $fs-h6, $lh-h6); }
+
+h1  { @include rem('margin', 0 0 12px);  }
+h2, 
+h3, 
+h4, 
+h5, 
+h6  { @include rem('margin', 0 0 6px); }
+
+	// Adjust spacing after paragraphs
+	p + h2,
+	p + h3,
+	p + h4,
+	p + h5,
+	p + h6 { @include rem('margin-top', 24px); }
+
+
+/*  Paragraphs & Lists
+------------------------------------------------------------------------------ */
+p  {
+	@include body-copy;
+	@include rem('margin', 0 0 12px); }
+
+ul, 
+ol{ 
+	@include rem('margin', 12px 0 24px 24px);
+	@include rem('padding', 0 0 0 12px); }
+
+li {
+	@include body-copy;
+	@include rem('margin', 0 0 6px);
+	
+	&:last-child { margin-bottom: 0; } }
+
+ul > li 	{ list-style: square; }
+
+ol li 		{ list-style: decimal; }
+ol ol li 	{ list-style: lower-alpha; }
+ol ol ol li { list-style: lower-roman; }
+
+dl {
+	padding: 0;
+	@include rem('margin', 12px 0 24px);
+
+	dt, 
+	dd { 
+		@include rem('font-size', $fs-body);
+		@include em($fs-body, 'line-height', $lh-body); }
+	
+	dt { 
+		font-weight: 500; 
+		padding: 0; 
+		@include rem('padding', 12px 0 0); }
+	
+	dd { margin: 0; padding: 0; } }
+
+
+/*  Links
+------------------------------------------------------------------------------ */
+a { color: $color-links; 
+	text-decoration:none;
+
+	&:visited	{ color: $color-links-v; } 
+	&:hover		{ color: $color-links-h; }
+	&:active	{ color: $color-links-a; } 
+
+	&, &:visited, &:hover, &:active { @include transition(all, .5s, ease); } }
+
+
+/*  Additional elements
+------------------------------------------------------------------------------ */
+em { font-style: italic; }
+small { font-size: .75em; }
+strong { font-weight: $font-weight-bold; }
+
+code, sub, sup { line-height: 0; }
+
+abbr { border-bottom: 1px dotted #333; }
+
+address { 
+	font-style:italic; 
+	@include body-copy; 
+	@include rem('margin', 0 0 24px); }
+
+hr { 
+	display: block; 
+	width: 100%; height: 0; 
+	border: 0; border-top: $border; 
+	@include rem('margin', 24px 0); padding: 0; }
+
+
+/*  Images & Media
+ *  Remove the gap between images, videos, audio and canvas and the bottom of 
+ *  their containers: h5bp.com/i/440
+------------------------------------------------------------------------------ */
+audio,
+canvas,
+img,
+video { vertical-align:middle; }
+
+
+/*  Tables
+------------------------------------------------------------------------------ */
+table { 
+	width: 100%; 
+	border: $table-border; 
+	background: $table-bg;
+	@include rem('margin', 0 0 24px); }
+
+th, td { 
+	@include body-copy;
+	vertical-align: top; 
+	border-top: $border; 
+
+	@include rem('padding', 12px 6px); }
+
+thead > tr > th { }
+
+th,
+thead th, { 
+	text-align: left; 
+	vertical-align: bottom; 
+	color: $th-color; 
+	background: $th-bg; 
+	font-weight: $font-weight-bold; }
+
+caption + thead,
+colgroup + thead,
+thead:first-child,
+tbody:first-child {
+	tr:first-child {
+		th, td { border-top: 0; } } }
+
+tbody tr {
+	&:nth-child(2n) td { background: $tr-even; }
+	&:nth-child(2n+1) td { background: $tr-odd; } }
+
+tbody:last-child td,
+tfoot:last-child td { 
+	*:first-child { margin-top: 0; }
+	*:last-child { margin-bottom: 0; } }
+
+
+
+
+
+/*  Blockquotes
+------------------------------------------------------------------------------ */
+blockquote { 
+	quotes: none; 
+
+	border: $border;
+	@include rem('border-width', 0 0 0 6px);
+
+	@include rem('font-size', $fs-body-accent);
+	@include em('line-height', $fs-body-accent, $lh-body-accent); 
+	
+	@include rem('padding', 12px 24px); @include rem('margin', 0 0 24px);
+
+	&:before, 
+	&:after { content: ''; content: none; } 
+
+	p { font-size: 1em; } }
+
+
+/*  Form Elements
+------------------------------------------------------------------------------ 
+	Thanks to Dave Gamache for Skeleton [https://github.com/dhg/Skeleton]
+------------------------------------------------------------------------------ */
+form,
+fieldset { 
+	@include rem('margin-bottom', 24px);
+	@extend .cf; }
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"], 
+textarea, 
+select {
+	display: block;
+	width: 210px; max-width: 100%;
+
+	@include rem('margin', 0 0 24px);
+	@include rem('padding', 6px); 
+
+	outline: none;
+	border-radius: 3px;
+	
+	border: $border;
+	background: $field-bg; 
+	color: $field-color; }
+
+select { padding: 0; }
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+	border: $border-focus;
+	background: $field-bg-focus; 
+	color: $field-color-focus; 
+	box-shadow: inset 1px 1px 2px rgba(0,0,0,.2); }
+
+textarea {
+	min-height: 60px; 
+	resize: vertical; }
+
+label, legend {
+	display: block;
+	font-weight: $font-weight-bold;
+	@include rem('font-size', 18px);}
+
+select {
+	width: 220px; }
+
+input[type="checkbox"] {
+	display: inline; }
+
+label span,
+legend span {
+	font-weight: normal;
+	@include rem('font-size', 15px);}
+
+
+/*  Buttons
+------------------------------------------------------------------------------ */
+.button,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+
+	display: inline-block; cursor: pointer;
+
+	@include rem('margin', 0 6px 6px 0);
+	@include rem('padding', 6px 24px);
+
+	@include rem('font-size', 12px);
+	@include em('line-height', 12px, 24px);
+
+	font-weight: $font-weight-bold; 
+	text-transform: uppercase; text-align:center; 
+
+	background: $btn-primary; color: $btn-primary-text; 
+
+	border: none; 
+
+	&:hover { background: $btn-hover; color: $btn-hover-text; }
+	&:active { background: $btn-active; color: $btn-active-text; } }
+
+// Fix for odd Mozilla border & padding issues
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; }
