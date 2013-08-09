@@ -3,6 +3,9 @@
 	Put all your layout and design related styles here.
 ==================================================================================== */
 
+html { height: 100%; }
+body { min-height: 100%; @include rem('padding-bottom', 48px);}
+
 // Basic Wrapper
 .wrapper {
 	width: 100%;
@@ -33,7 +36,7 @@
 
 // Main Site Content
 .site-content { 
-	@include rem('margin', 24px 0 48px);
+	@include rem('margin', 24px 0);
 
 	.description-box,
 	.download-box { 
@@ -44,7 +47,8 @@
 
 // Site Footer
 .site-footer {
-	height:48px; 
+	height:48px; width: 100%; 
+	position: absolute; bottom: 0; 
 	background: #202020; color: #EBEBEB; 
 	
 	p.bragging-rights { display:none; }

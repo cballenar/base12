@@ -1028,6 +1028,14 @@ input::-moz-focus-inner {
 =======================================================================================
 	Put all your layout and design related styles here.
 ==================================================================================== */
+html {
+  height: 100%; }
+
+body {
+  min-height: 100%;
+  padding-bottom: 48px;
+  padding-bottom: 4rem; }
+
 .wrapper {
   width: 100%;
   margin: 0 auto; }
@@ -1059,8 +1067,8 @@ input::-moz-focus-inner {
     display: none; }
 
 .site-content {
-  margin: 24px 0 48px;
-  margin: 2rem 0 4rem; }
+  margin: 24px 0;
+  margin: 2rem 0; }
   .site-content .description-box,
   .site-content .download-box {
     margin: 0 0 24px;
@@ -1072,6 +1080,9 @@ input::-moz-focus-inner {
 
 .site-footer {
   height: 48px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
   background: #202020;
   color: #EBEBEB; }
   .site-footer p.bragging-rights {
