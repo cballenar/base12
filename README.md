@@ -1,5 +1,5 @@
 # Base12
-_A simple framework focused on CSS and built around the number 12._
+_A simple framework focused on SCSS and built around the number 12._
 
 Frameworks are awesome, they can give you a huge headstart when building a new site, getting rid of a lot of the repetitive work and letting you focus on the fun stuff. However, there is no framework that fits every project, not even this one.
 
