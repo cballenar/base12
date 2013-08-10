@@ -1,40 +1,57 @@
 # [Base12](http://cballenar.github.io/base12/)
-__A SCSS framework built around the number 12__
+__A SCSS framework built around 12__
 
-_Base12_ is a SCSS framework for the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/) to help provide some basic styles but still leave the playground open for a highly customized design.
+## Huh... ?
+Base12 is a framework that provides you with a basic SCSS folder structure for your projects. Base12 measurements are built around the number 12 .
 
-An important aspect of Base12 is that by default it's measurements are all based on the number 12. Since 12 is divisible by 2, 3, 4, 6, and 12, it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.
+Because Base12 uses the CSS from the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/), it can be used in combination with it.
+
+### How do I use it?
+1. Start a new project with the [Classic H5BP](http://www.initializr.com/)
+2. Replace the `css` folder with Base12's
+3. Setup your preprocessor to compile `main.scss`
+4. Code away!
+
+## Base12, A Different Approach to Numbers
+The most important aspect of Base12 is that it's measurements are based on the number 12. Because 12 has a wide range of divisors (1, 2, 3, 4, 6 & 12), it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.
+
+In this aspect, Base12 is more of a design philosophy. By using multiples/divisors of 12 across our design, we ensure that our numbers are not random but follow some rules. This can make a huge difference when thinking in terms of a baseline and vertical rhythm.
 
  - Source: [https://github.com/cballenar/base12](https://github.com/cballenar/base12)
  - Homepage: [http://cballenar.github.io/base12/](http://cballenar.github.io/base12/)
 
 ## Customizing Base12
 The boilerplate allows you to do some basic and, I must admit, not so polished customizations. 
-This is done through the `main.scss` file. In here you will find variables for common styles such as type color, background, border, font sizes for headings and paragraphs, etc.
+This is done through the `_variables.scss` file. In here you will find variables for common styles such as type color, background, border, font sizes for headings and paragraphs, etc.
 
 ```scss
-/*  Define your Style
+/*  Variables
 ==================================================================================== */
 
-    // Fonts
-    $font-heading: 'atrament-web', serif;
-    $font-body-copy: 'jubilat', 'Impact', sans-serif;
+/* Switches - turn features on/off
+------------------------------------------------------------------------------------ */
+$box-sizing-for-all:        true;  // add *{box-sizing:border-box} prefixed
+$rem-to-px-fallback:        false; // create px fallback for rem() formula
 
+// Styled elements
+$style-blockquotes:         true;
+$style-tables:              true;
+$style-forms:               true;
+$style-buttons:             true;
+$style-code:                true;
 
-    // Basic colors
-    $color-bg:              #FBFBFB;
-    $color-font-heading:    #303030;
-    $color-font-body:       #202020;
-    $color-selection:       #B3D4FC;
+/* Type - use pixels for font-size & line-height
+------------------------------------------------------------------------------------ */
+// Base
+$base-font-size:            12px;   // Preferably in pxs
+$base-line-height:          1.62em; // Preferably in ems
 
+// Font families
+$font-heading:              'Helvetica', sans-serif;
+$font-body-copy:            'Times New Roman', Times, serif;
+$font-monospace:            'Consolas', 'Courier New', monospace;
 
-    // Links colors
-    $color-links:           #1B4781;
-    $color-links-h:         #C04620;
-    $color-links-a:         #000000;
-    $color-links-v:         $color-links;
-
-    // etc...
+// etc...
 ```
 
 ## Structure
@@ -56,13 +73,13 @@ The directory structure is as follows:
 Compressed output file.
 
 #### main.scss
-Here you will find all the variables and imported partials.
+Here you can find and add all your partials.
 
 #### base/
-The base folder contains 2 files, `base` and `normalize`. [Normalize](http://necolas.github.io/normalize.css/) is the reset sheet. Base is the primary file in Base12, this is where most variables end up in and defines most basic styles. Ideally these files will remain untouched unless a new release comes out.
+The base folder contains the `variables`, `base` and `normalize` stylesheets. [Normalize](http://necolas.github.io/normalize.css/) is the reset sheet. Variables is the file where you will customize Base12. Base is the primary file in Base12, this is where most variables end up in and defines most basic styles. Ideally these files will remain untouched unless a new release comes out.
 
 #### design/
-It contains two files `design` and `modifiers`. Design, as you can imagine, is where all the styles that define the design of the site are located. Modifiers are "element modifiers" they are simple classes that change existing elements, this includes things such as `blockquote.pull-quote` or `button.disabled`. In here you will also find the basic styles for the following elements: tables, blockquotes, form elements, and buttons. I realized that these elements can be highly customized and should be easy to update independently from the `base` files. Notice that the `modifiers` sheet comes before the `design` sheet when imported, this is because the modifiers are meant to come right after the `base` stylesheet.
+It contains two files `design` and `modifiers`. Design, as you can imagine, is where all the styles that define the design of the site are located. Modifiers are "element modifiers" they are simple classes that change existing elements, this includes things such as `p.lead` or `.subheader`.
 
 #### formulas/
 Contains mixins and formulas used in Base12, users should keep their own formulas in this folder.
@@ -80,6 +97,17 @@ We all love Object Oriented CSS, right? This is where we get to put all those sw
 Styles from plugins and third-party vendors. Also keep as separate files and `@import` into `vendors` stylesheet.
 
 ## Goodies
+
+### Switches
+Turn features on/off according to your preferences. At the moment the features available to switch on/off are:
+
+ - Universal Box Sizing
+ - REM to PX fallback
+ - Styled blockquotes
+ - Styled tables
+ - Styled forms
+ - Styled buttons
+ - Styled code
 
 ### Formulas
 The boilerplate includes a few formulas (mixins) to help here and there. I plan to add more depending on which ones get used the most.

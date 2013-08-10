@@ -3,10 +3,10 @@
 ====================================================================================
 	'rem' is a Sass mixin that converts pixel values to rem values
 	Returns 2 lines of code — regular pixel values and converted rem values 
-	
+
 	Sample input:
 		.element { @include rem('padding',10px 0 2px 5px); }
-	
+
 	Sample output:
 		.element {
 			padding: 10px 0 2px 5px;
@@ -20,18 +20,21 @@
 $baseline_px: $base-font-size;
  
 @mixin rem($property, $px_values) {
-	
+
 	// Convert the baseline into rems
 	$baseline_rem: ($baseline_px / 1rem);
-	
-	// Print the first line in pixel values
-	#{$property}: $px_values;
-	
+
+	// If IE support enabled print px value
+	@if $rem-to-px-fallback == true {
+		// Print the first line in pixel values
+		#{$property}: $value-in-px;
+	}
+
 	// If only one (numeric) value, return the property/value line for it.
 	@if type-of($px_values) == 'number' {
 		#{$property}: $px_values / $baseline_rem;
 	}
-	
+
 	// If more than one value, create list & perform equations on each value
 	@else {
 		// Create an empty list that we can dump values into
