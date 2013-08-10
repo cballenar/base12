@@ -3,16 +3,24 @@
 	Put all your layout and design related styles here.
 ==================================================================================== */
 
-html { height: 100%; }
-body { min-height: 100%; @include rem('padding-bottom', 48px);}
+// For sticky footer
+html, body { height: 100%; }
 
-// Basic Wrapper
+.outer-wrapper { 
+	min-height: 100%; 
+	height: auto !important; 
+	height: 100%; 
+	@include rem('margin-bottom', -48px); 
+	
+	.footer-push { @include rem('height', 48px); } }
+
+// Used in layout
 .wrapper {
 	width: 100%;
 	margin: 0 auto; 
 	@extend .cf; 
 }
-.inner { @include rem('padding', 0 24px);}
+
 
 // Site Header
 .site-header {
@@ -22,7 +30,7 @@ body { min-height: 100%; @include rem('padding-bottom', 48px);}
 	
 	a { color: #EBEBEB; }
 	
-	.site-title { 
+	.site-logo { 
 		display: block;
 		@include rem('height', 96px);
 		@include rem('margin', 0px);
@@ -34,21 +42,15 @@ body { min-height: 100%; @include rem('padding-bottom', 48px);}
 
 	.subheader { display:none; } }
 
+
 // Main Site Content
 .site-content { 
-	@include rem('margin', 24px 0);
+	@include rem('margin', 24px 0); }
 
-	.description-box,
-	.download-box { 
-		@include rem('margin', 0 0 24px);
-
-		*:last-child,
-		&:last-child { margin-bottom: 0; } } }
 
 // Site Footer
 .site-footer {
-	height:48px; width: 100%; 
-	position: absolute; bottom: 0; 
+	width: 100%; height:48px; 
 	background: #202020; color: #EBEBEB; 
 	
 	p.bragging-rights { display:none; }
@@ -61,8 +63,9 @@ body { min-height: 100%; @include rem('padding-bottom', 48px);}
 
 		a { color: #EBEBEB; 
 			i { font-size: 1.25em; top: .025em; }
-			&:hover { color: $color-links-h; } } } }
+			&:hover { color: $link-color-h; } } } }
+
 
 // Misc Globals
 .b12 { color: #F0750F; } 
-a:hover > .b12 { color: $color-links-h; }
+a:hover > .b12 { color: $link-color-h; }

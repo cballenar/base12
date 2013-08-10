@@ -4,19 +4,22 @@
 	Modify as content requires.
 ========================================================================== */
 
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 640px) {
 
+	// Basics
 	html, body { height: 100%; }
 	body { padding-bottom: 0; }
 
+	// Layout
 	.wrapper {
-		width: 90%; 
-		max-width: 800px; }
+		width: 100%; 
+		max-width: 840px; }
 
+	// Site Header
 	.site-header {
 		@include rem('height', 96px);
 
-		.site-title { 
+		.site-logo { 
 			display: block;
 			text-align: left;
 			@include rem('height', 96px);
@@ -30,17 +33,12 @@
 			display: block; float:right; 
 			@include rem('font-size', 21px); } }
 
+	// Site Content
 	.site-content { 
-		margin: 24px auto 48px; 
-		margin: 2rem auto 4rem; 
+		margin: 24px auto; 
+		margin: 2rem auto; }
 
-		.description-box { 
-			width: 62%; float:left; 
-			.inner { @include rem('padding', 0 12px 0 0); } }
-		
-		.download-box { width: 38%; float:right; 
-			.inner { @include rem('padding', 0 0 0 12px); } } }
-
+	// Site Footer
 	.site-footer {
 		p.social-box { 
 			float: right; text-align: right; } 

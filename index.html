@@ -18,49 +18,60 @@
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 	</head>
 	<body>
-		<!--[if lt IE 9]>
-			<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
-	<header class="site-header">
-		<div class="wrapper">
-			<div class="site-logo"><a class="site-title" href="http://cballenar.github.io/base12/">BASE<span class="b12">12</span></a></div>
-			<p class="subheader">A CSS framework built around 12</p>
-		</div>
-	</header>
-	<main class="site-content">
-		<div class="wrapper">
-			<div class="description-box">
-				<div class="inner">
-					<h2>Huh... ?</h2>
-					<p><em>Base12</em> is a SCSS framework for the <a href="https://github.com/h5bp/html5-boilerplate/"><em>HTML5 Boilerplate</em></a> to help provide some basic styles but still leave the playground open for a highly customized design.</p>
-					<p>An important aspect of Base12 is that by default it's measurements are all based on the number 12. Since 12 is divisible by 2, 3, 4, 6, and 12, it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.</p>
+		<!--[if lt IE 9]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]-->
+		<div class="outer-wrapper">
+			<header class="site-header">
+				<div class="wrapper">
+					<h1 class="site-logo"><a class="site-title" href="http://cballenar.github.io/base12/">BASE<span class="b12">12</span></a></h1>
+					<span class="subheader">A SCSS framework built around 12</span>
 				</div>
-			</div>
-			<div class="download-box">
-				<div class="inner">
-					<h2>Download <a href="http://github.com/cballenar/base12/releases/tag/v0.2-beta">v0.2-beta</a></h2>
-					<ul>
-						<li>Moved some <code>base.scss</code> elements into <code>modifiers.scss</code> so they can be customized and still be able to update <code>base.scss</code> when a new release comes out.</li>
-						<li>Updated <code>README.md</code> with notes on the structure of the framework.</li>
-						<li>Added a <code>test.html</code> page.</li>
-					</ul>
-					<a href="https://github.com/cballenar/base12/archive/v0.2-beta.zip" rel="nofollow" class="button press-me full-width">
-						<i class="icon icon-download"></i> Download Base12
-					</a>
+			</header>
+			<main class="site-content">
+				<div class="wrapper">
+					<div class="row">
+						<div class="col-62">
+							<h2>Huh... ?</h2>
+							<p>Base12 is a framework that provides you with a basic SCSS folder structure for your projects. Base12 measurements are built around the number 12 .</p>
+							<p>Because Base12 uses the CSS from the <a href="https://github.com/h5bp/html5-boilerplate/"><em>HTML5 Boilerplate</em></a>, it can be used in combination with it.</p>
+							<!-- <p><em>Base12</em> is a SCSS framework for the <a href="https://github.com/h5bp/html5-boilerplate/"><em>HTML5 Boilerplate</em></a> to help provide some basic styles but still leave the playground open for a highly customized design.</p> -->
+							<h3>How do I use it?</h3>
+							<ol>
+								<li>Start a new project with the <a href="http://www.initializr.com/">Classic H5BP</a></li>
+								<li>Replace the <code>css</code> folder with Base12's</li>
+								<li>Setup your preprocessor to compile <code>main.scss</code></li>
+								<li>Code away!</li>
+							</ol>
+						</div>
+						<div class="col-38">
+							<h3>Download <a href="http://github.com/cballenar/base12/releases/tag/v0.3-beta">v0.3-beta</a></h3>
+							<ul>
+								<li><a href="https://github.com/cballenar/base12#base">Variables</a> now live in standalone file</li>
+								<li>Added <a href="https://github.com/cballenar/base12#switches">Switches</a></li>
+								<li>Improvements to base styles</li>
+							</ul>
+							<p>Thanks to <a href="https://github.com/MichaelArestad">@MichaelArestad</a> and <a href="https://github.com/renoirb">@renoirb</a> for their time and helpful feedback!</p>
+							<a href="https://github.com/cballenar/base12/archive/v0.3-beta.zip" rel="nofollow" class="button press-me full-width">
+								<i class="icon icon-download"></i> Download Base12
+							</a>
+						</div>
+					</div>
+					<hr>
+					<div class="row">
+						<div class="col-100">
+							<h2>Base12, A Different Approach to Numbers</h2>
+							<p>The most important aspect of Base12 is that it's measurements are based on the number 12. Because 12 has a wide range of divisors (1, 2, 3, 4, 6 &amp; 12), it makes it very easy to get a wide variety of sub-measurements while keeping some rhythm in your design.</p>
+							<p>In this aspect, Base12 is more of a design philosophy. By using multiples/divisors of 12 across our design, we ensure that our numbers are not random but follow some rules. This can make a huge difference when thinking in terms of a baseline and vertical rhythm.</p>
+						</div>
+					</div>
 				</div>
+			</main>
+			<div class="footer-push"></div>
+		</div>
+		<footer class="site-footer">
+			<div class="wrapper">
+				<p class="bragging-rights">Built with <a href="http://cballenar.github.io/base12/">Base<span class="b12">12</span></a></p>
+				<p class="social-box"><a href="http://github.com/cballenar/base12" title="View Base12 in GitHub"><i class="icon-github"></i> View GitHub Project</a></p>
 			</div>
-			<article class="hidden">
-				<h2>Why?</h2>
-				<p>Frameworks are awesome, they can give you a huge headstart when building a new site, getting rid of a lot of the repetitive work and letting you focus on the fun stuff. Some of them, like the <a href="https://github.com/h5bp/html5-boilerplate/"><em>HTML5 Boilerplate</em></a> provide a very clean framework, giving you the (great &amp; best) essentials to get you started, others such as the <a href="https://github.com/twbs/bootstrap/"><em>Twitter Bootstrap</em></a> give you everything you need to deploy a site in minutes. However when creating a custom design, a framework like this may be an overkill. </p>
-			</article>
-		</div>
-	</main>
-	<footer class="site-footer">
-		<div class="wrapper">
-			<p class="bragging-rights">Built with <a href="http://cballenar.github.io/base12/">Base<span class="b12">12</span></a></p>
-			<p class="social-box"><a href="http://github.com/cballenar/base12" title="View Base12 in GitHub"><i class="icon-github"></i> View GitHub Project</a></p>
-		</div>
-	</footer>
+		</footer>
 	</body>
 </html>
-

@@ -1,11 +1,17 @@
-/* 
-**	Base12 v0.2-beta - Updated: August 9, 2013 - http://cballenar.github.io/base12/
-==================================================================================== 
-*/
-/*  Define your Style
+/*  Main.css
+=======================================================================================
+	Call all your partials from here
 ==================================================================================== */
-/*  Base12 Partials
+/*  Variables
 ==================================================================================== */
+/* Switches
+------------------------------------------------------------------------------------ */
+/* Type - use pixels for font-size & line-height
+------------------------------------------------------------------------------------ */
+/* Colors
+------------------------------------------------------------------------------------ */
+/* Other Elements - Ignore if they're turned off
+------------------------------------------------------------------------------------ */
 /*
 **  em() - By CBallenar [ https://github.com/cballenar ]
 ====================================================================================
@@ -486,18 +492,20 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-/*  Base Styles
-============================================================================== 
-	The following lines work as a second reset layer. It defines all 
-	typographic elements, basic colors, and styles. 
-=========================================================================== */
+/* 
+**	Base12 v0.2-beta - Updated: August 9, 2013 - http://cballenar.github.io/base12/
+==================================================================================== 
+*/
 /*  Reusable Mixins
 ------------------------------------------------------------------------------ */
 /*  Global Styles
 ------------------------------------------------------------------------------ */
 * {
   position: relative;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 html, body, button, input, select, textarea {
   color: #202020; }
@@ -505,7 +513,8 @@ html, body, button, input, select, textarea {
 html {
   font-family: "jubilat", serif;
   font-size: 12px;
-  line-height: 1.62em;
+  line-height: 1.5em;
+  font-weight: 400;
   background: #ebebeb; }
   html * {
     word-wrap: break-word; }
@@ -516,13 +525,15 @@ html {
 
 ::-moz-selection,
 ::selection {
-  background: #b3d4fc;
+  background: #202020;
+  color: #ebebeb;
   text-shadow: none; }
 
 /*  Headings
 ------------------------------------------------------------------------------ */
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "atrament-web", "Impact", sans-serif; }
+  font-family: "atrament-web", "Impact", sans-serif;
+  font-weight: 600; }
 
 h1, .h1 {
   font-size: 60px;
@@ -627,7 +638,7 @@ dl {
   dl dd {
     font-size: 15px;
     font-size: 1.25rem;
-    15px: 21px/"line-height"/1em; }
+    line-height: 1.4em; }
   dl dt {
     font-weight: 600;
     padding: 12px 0 0;
@@ -644,9 +655,9 @@ a {
   a:visited {
     color: #f0750f; }
   a:hover {
-    color: #c04620; }
+    color: #d8690e; }
   a:active {
-    color: black; }
+    color: #dd4b39; }
   a, a:visited, a:hover, a:active {
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -665,12 +676,8 @@ small {
 strong {
   font-weight: 600; }
 
-code, sub, sup {
+sub, sup {
   line-height: 0; }
-
-pre {
-  margin: 0 0 24px;
-  margin: 0 0 2rem; }
 
 abbr {
   border-bottom: 1px dotted #333; }
@@ -703,69 +710,45 @@ img,
 video {
   vertical-align: middle; }
 
-/*  
-**	Author's Styles
-==================================================================================== 
-*/
-/*  Basic Modifiers
-============================================================================== 
-	The following styles build upon the core elements and add some 
-	interesting visual modifications. Unlike Helpers, these elements focus
-	more on making things visually interest and are less about the function.
-=========================================================================== */
-/*  Floats
+/*  Optional Elements
+ * 	The styles below can be turned off from the variables stylesheet
 ------------------------------------------------------------------------------ */
-.pull-left {
-  float: left; }
-
-.pull-right {
-  float: right; }
-
-/*  Headers
+                          /*  Code
 ------------------------------------------------------------------------------ */
-.subheader {
-  color: #777; }
+code, pre {
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 1em; }
 
-/*  Paragraphs
------------------------------------------------------------------------------- */
-p.lead {
-  color: #777;
-  font-size: 18px;
-  font-size: 1.5rem;
-  line-height: 1.33333em; }
+code {
+  padding: 0 3px;
+  padding: 0 0.25rem;
+  border-radius: 3px;
+  border-radius: 0.25rem;
+  font-size: .8em;
+  line-height: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.05);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75); }
 
-/*  Text Modifiers
------------------------------------------------------------------------------- */
-.lowercase {
-  text-transform: lowercase; }
+pre {
+  display: block;
+  color: #202020;
+  background-color: #ebebeb;
+  border: 1px solid #dadada;
+  margin: 0 0 24px;
+  margin: 0 0 2rem;
+  padding: 6px 12px;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  border-radius: 0.25rem;
+  font-size: 15px;
+  font-size: 1.25rem;
+  line-height: 1.4em;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word; }
 
-.uppercase {
-  text-transform: uppercase; }
-
-.small-caps {
-  font-variant: small-caps; }
-
-.text-left {
-  text-align: left; }
-
-.text-center {
-  text-align: center; }
-
-.text-right {
-  text-align: right; }
-
-/*  Modifiers for Images
------------------------------------------------------------------------------- */
-img.img-scaled {
-  max-width: 100%;
-  height: auto; }
-img.img-bordered {
-  padding: 2px;
-  border: 1px solid #dadada; }
-img.img-circle {
-  border-radius: 100%; }
-
-/*  Tables
+                            /*  Tables
 ------------------------------------------------------------------------------ */
 table {
   width: 100%;
@@ -773,46 +756,41 @@ table {
   background: transparent;
   margin: 0 0 24px;
   margin: 0 0 2rem; }
+  table th, table td {
+    font-size: 15px;
+    font-size: 1.25rem;
+    line-height: 1.4em;
+    vertical-align: top;
+    border-top: 1px solid #dadada;
+    padding: 12px 6px;
+    padding: 1rem 0.5rem; }
+  table th,
+  table thead th {
+    text-align: left;
+    vertical-align: bottom;
+    color: #202020;
+    background: transparent;
+    font-weight: 600; }
+  table caption + thead tr:first-child th, table caption + thead tr:first-child td,
+  table colgroup + thead tr:first-child th,
+  table colgroup + thead tr:first-child td,
+  table thead:first-child tr:first-child th,
+  table thead:first-child tr:first-child td,
+  table tbody:first-child tr:first-child th,
+  table tbody:first-child tr:first-child td {
+    border-top: 0; }
+  table tbody tr:nth-child(2n) td {
+    background: transparent; }
+  table tbody tr:nth-child(2n+1) td {
+    background: transparent; }
+  table tbody:last-child td *:first-child,
+  table tfoot:last-child td *:first-child {
+    margin-top: 0; }
+  table tbody:last-child td *:last-child,
+  table tfoot:last-child td *:last-child {
+    margin-bottom: 0; }
 
-th, td {
-  font-size: 15px;
-  font-size: 1.25rem;
-  line-height: 1.4em;
-  vertical-align: top;
-  border-top: 1px solid #dadada;
-  padding: 12px 6px;
-  padding: 1rem 0.5rem; }
-
-th,
-thead th {
-  text-align: left;
-  vertical-align: bottom;
-  color: #202020;
-  background: transparent;
-  font-weight: 600; }
-
-caption + thead tr:first-child th, caption + thead tr:first-child td,
-colgroup + thead tr:first-child th,
-colgroup + thead tr:first-child td,
-thead:first-child tr:first-child th,
-thead:first-child tr:first-child td,
-tbody:first-child tr:first-child th,
-tbody:first-child tr:first-child td {
-  border-top: 0; }
-
-tbody tr:nth-child(2n) td {
-  background: transparent; }
-tbody tr:nth-child(2n+1) td {
-  background: transparent; }
-
-tbody:last-child td *:first-child,
-tfoot:last-child td *:first-child {
-  margin-top: 0; }
-tbody:last-child td *:last-child,
-tfoot:last-child td *:last-child {
-  margin-bottom: 0; }
-
-/*  Blockquotes
+                                 /*  Blockquotes
 ------------------------------------------------------------------------------ */
 blockquote {
   quotes: none;
@@ -853,22 +831,27 @@ blockquote {
     blockquote.pull-quote > *:last-child {
       margin-bottom: 0; }
 
-/*  Form Elements
+                           /*  Form Elements
 ------------------------------------------------------------------------------ 
 	Thanks to Dave Gamache for Skeleton [https://github.com/dhg/Skeleton]
 ------------------------------------------------------------------------------ */
 form,
-fieldset {
-  margin-bottom: 24px;
-  margin-bottom: 2rem; }
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-textarea,
-select {
+form fieldset {
+  margin: 0 0 24px;
+  margin: 0 0 2rem;
+  padding: 0 9px 6px;
+  padding: 0 0.75rem 0.5rem; }
+form fieldset {
+  border-radius: 3px;
+  border-radius: 0.25rem; }
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form textarea,
+form select {
   display: block;
-  width: 210px;
+  width: 240px;
+  width: 20rem;
   max-width: 100%;
   margin: 0 0 24px;
   margin: 0 0 2rem;
@@ -876,48 +859,47 @@ select {
   padding: 0.5rem;
   outline: none;
   border-radius: 3px;
+  border-radius: 0.25rem;
   border: 1px solid #dadada;
-  background: #fbfbfb;
-  color: #444444; }
-
-select {
+  background: #fafafa;
+  color: #707070; }
+form select {
   padding: 0; }
-
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="email"]:focus,
-textarea:focus {
-  border: 1px solid #c04620;
-  background: white;
+form input[type="text"]:focus,
+form input[type="password"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+  border: 1px solid #c1c1c1;
+  background: #fbfbfb;
   color: #202020;
   box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2); }
-
-textarea {
+form textarea {
   min-height: 60px;
+  min-height: 5rem;
   resize: vertical; }
-
-label, legend {
+form label, form legend {
   display: block;
+  font-family: "atrament-web", "Impact", sans-serif;
   font-weight: 600;
   font-size: 18px;
-  font-size: 1.5rem; }
-
-select {
-  width: 220px; }
-
-input[type="checkbox"] {
+  font-size: 1.5rem;
+  margin: 0 0 6px;
+  margin: 0 0 0.5rem; }
+form select {
+  width: 240px;
+  width: 20rem; }
+form input[type="checkbox"] {
   display: inline; }
-
-label span,
-legend span {
+form label span,
+form legend span {
   font-weight: normal;
   font-size: 15px;
   font-size: 1.25rem; }
 
-/*  Buttons
+                             /*  Buttons
 ------------------------------------------------------------------------------ */
-.button,
 button,
+.button,
 input[type="submit"],
 input[type="reset"],
 input[type="button"] {
@@ -937,29 +919,36 @@ input[type="button"] {
   padding: 0.5rem 2rem;
   background: #f0750f;
   color: #fbfbfb; }
-  .button:hover,
   button:hover,
+  .button:hover,
   input[type="submit"]:hover,
   input[type="reset"]:hover,
   input[type="button"]:hover {
-    background: #202020;
-    color: #fbfbfb; }
-  .button:active,
+    background: #e46f0e;
+    color: white; }
   button:active,
+  .button:active,
   input[type="submit"]:active,
   input[type="reset"]:active,
   input[type="button"]:active {
-    background: #c04620;
+    background: #dd4b39;
     color: white; }
-  .button.disabled,
-  button.disabled,
-  input[type="submit"].disabled,
-  input[type="reset"].disabled,
-  input[type="button"].disabled {
+  button.btn-primary,
+  .btn-primary.button,
+  input[type="submit"].btn-primary,
+  input[type="reset"].btn-primary,
+  input[type="button"].btn-primary {
+    color: #f0750f;
+    background: #fbfbfb; }
+  button.btn-disabled,
+  .btn-disabled.button,
+  input[type="submit"].btn-disabled,
+  input[type="reset"].btn-disabled,
+  input[type="button"].btn-disabled {
     color: #dadada;
-    background: #ebebeb; }
-  .button.full-width,
+    background: #c1c1c1; }
   button.full-width,
+  .full-width.button,
   input[type="submit"].full-width,
   input[type="reset"].full-width,
   input[type="button"].full-width {
@@ -967,82 +956,155 @@ input[type="button"] {
     padding-left: 0 !important;
     padding-right: 0 !important;
     text-align: center; }
-  .button.press-me,
-  button.press-me,
-  input[type="submit"].press-me,
-  input[type="reset"].press-me,
-  input[type="button"].press-me {
-    font-family: "atrament-web", "Impact", sans-serif;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-align: center;
-    font-size: 21px;
-    font-size: 1.75rem;
-    line-height: 1.14286em;
-    margin: 0 6px 6px 0;
-    margin: 0 0.5rem 0.5rem 0;
-    padding: 12px 24px;
-    padding: 1rem 2rem;
-    border-radius: 6px;
-    border-radius: 0.5rem;
-    color: #fbfbfb;
-    background: #f0750f;
-    box-shadow: 0 6px #c05e0c;
-    -webkit-transition: all 0.1s ease;
-    -moz-transition: all 0.1s ease;
-    -ms-transition: all 0.1s ease;
-    -o-transition: all 0.1s ease;
-    transition: all 0.1s ease; }
-    .button.press-me:hover,
-    button.press-me:hover,
-    input[type="submit"].press-me:hover,
-    input[type="reset"].press-me:hover,
-    input[type="button"].press-me:hover {
-      top: 2px;
-      background: #f28327;
-      box-shadow: 0 4px #c05e0c; }
-    .button.press-me:active,
-    button.press-me:active,
-    input[type="submit"].press-me:active,
-    input[type="reset"].press-me:active,
-    input[type="button"].press-me:active {
-      top: 4px;
-      background: #c04620;
-      box-shadow: 0 2px #943619; }
-    .button.press-me i,
-    button.press-me i,
-    input[type="submit"].press-me i,
-    input[type="reset"].press-me i,
-    input[type="button"].press-me i {
-      top: 2px;
-      font-size: 27px;
-      font-size: 2.25rem;
-      line-height: 0.77778em; }
+  button button::-moz-focus-inner,
+  button input::-moz-focus-inner,
+  .button button::-moz-focus-inner,
+  .button input::-moz-focus-inner,
+  input[type="submit"] button::-moz-focus-inner,
+  input[type="submit"] input::-moz-focus-inner,
+  input[type="reset"] button::-moz-focus-inner,
+  input[type="reset"] input::-moz-focus-inner,
+  input[type="button"] button::-moz-focus-inner,
+  input[type="button"] input::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
 
-button::-moz-focus-inner,
-input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
+/*  
+**	Author's Styles
+==================================================================================== 
+*/
+/*  Modifiers
+============================================================================== 
+	The following styles build upon the core elements and add some 
+	interesting visual modifications. Unlike Helpers, these elements focus
+	more on making things visually interest and are less about the function.
+=========================================================================== */
+/*  Floats
+------------------------------------------------------------------------------ */
+.pull-left {
+  float: left; }
+
+.pull-right {
+  float: right; }
+
+/*  Headers
+------------------------------------------------------------------------------ */
+.subheader {
+  color: #707070; }
+
+/*  Paragraphs
+------------------------------------------------------------------------------ */
+p.lead {
+  color: #707070;
+  font-size: 18px;
+  font-size: 1.5rem;
+  line-height: 1.33333em; }
+
+/*  Text Modifiers
+------------------------------------------------------------------------------ */
+.lowercase {
+  text-transform: lowercase; }
+
+.uppercase {
+  text-transform: uppercase; }
+
+.small-caps {
+  font-variant: small-caps; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+/*  Modifiers for Images
+------------------------------------------------------------------------------ */
+img.img-scaled {
+  max-width: 100%;
+  height: auto; }
+img.img-bordered {
+  padding: 2px;
+  border: 1px solid #dadada; }
+img.img-circle {
+  border-radius: 100%; }
+
+/*  Buttons
+------------------------------------------------------------------------------ */
+.button.press-me,
+button.press-me,
+input[type="submit"].press-me,
+input[type="reset"].press-me,
+input[type="button"].press-me {
+  font-family: "atrament-web", "Impact", sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 21px;
+  font-size: 1.75rem;
+  line-height: 1.14286em;
+  margin: 0 6px 6px 0;
+  margin: 0 0.5rem 0.5rem 0;
+  padding: 12px 24px;
+  padding: 1rem 2rem;
+  border-radius: 6px;
+  border-radius: 0.5rem;
+  color: #fbfbfb;
+  background: #f0750f;
+  box-shadow: 0 6px #c05e0c;
+  -webkit-transition: all 0.1s ease;
+  -moz-transition: all 0.1s ease;
+  -ms-transition: all 0.1s ease;
+  -o-transition: all 0.1s ease;
+  transition: all 0.1s ease; }
+  .button.press-me:hover,
+  button.press-me:hover,
+  input[type="submit"].press-me:hover,
+  input[type="reset"].press-me:hover,
+  input[type="button"].press-me:hover {
+    top: 2px;
+    background: #e46f0e;
+    box-shadow: 0 4px #c05e0c; }
+  .button.press-me:active,
+  button.press-me:active,
+  input[type="submit"].press-me:active,
+  input[type="reset"].press-me:active,
+  input[type="button"].press-me:active {
+    top: 4px;
+    background: #dd4b39;
+    box-shadow: 0 2px #c23321; }
+  .button.press-me i,
+  button.press-me i,
+  input[type="submit"].press-me i,
+  input[type="reset"].press-me i,
+  input[type="button"].press-me i {
+    top: 2px;
+    font-size: 27px;
+    font-size: 2.25rem;
+    line-height: 0.77778em; }
 
 /*  Layout
 =======================================================================================
 	Put all your layout and design related styles here.
 ==================================================================================== */
-html {
+html, body {
   height: 100%; }
 
-body {
+.outer-wrapper {
   min-height: 100%;
-  padding-bottom: 48px;
-  padding-bottom: 4rem; }
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -48px;
+  margin-bottom: -4rem; }
+  .outer-wrapper .footer-push {
+    height: 48px;
+    height: 4rem; }
 
 .wrapper {
   width: 100%;
   margin: 0 auto; }
-
-.inner {
-  padding: 0 24px;
-  padding: 0 2rem; }
 
 .site-header {
   font-family: "atrament-web", "Impact", sans-serif;
@@ -1052,7 +1114,7 @@ body {
   white-space: nowrap; }
   .site-header a {
     color: #EBEBEB; }
-  .site-header .site-title {
+  .site-header .site-logo {
     display: block;
     height: 96px;
     height: 8rem;
@@ -1069,20 +1131,10 @@ body {
 .site-content {
   margin: 24px 0;
   margin: 2rem 0; }
-  .site-content .description-box,
-  .site-content .download-box {
-    margin: 0 0 24px;
-    margin: 0 0 2rem; }
-    .site-content .description-box *:last-child, .site-content .description-box:last-child,
-    .site-content .download-box *:last-child,
-    .site-content .download-box:last-child {
-      margin-bottom: 0; }
 
 .site-footer {
-  height: 48px;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  height: 48px;
   background: #202020;
   color: #EBEBEB; }
   .site-footer p.bragging-rights {
@@ -1100,28 +1152,70 @@ body {
         font-size: 1.25em;
         top: .025em; }
       .site-footer p a:hover {
-        color: #c04620; }
+        color: #d8690e; }
 
 .b12 {
   color: #F0750F; }
 
 a:hover > .b12 {
-  color: #c04620; }
+  color: #d8690e; }
 
 /*  Modules
 =======================================================================================
 	Put all your module and object related styles here.
 ==================================================================================== */
+.row {
+  margin: 0 0 24px;
+  margin: 0 0 2rem; }
+  .row:last-child {
+    margin-bottom: 0; }
+
+*[class^="col-"] {
+  width: 100%;
+  padding: 0 24px;
+  margin: 0 0 24px; }
+  *[class^="col-"] *:last-child {
+    margin-bottom: 0; }
+
+@media only screen and (min-width: 640px) {
+  .row {
+    margin: 0 0 24px;
+    margin: 0 0 2rem; }
+    .row:last-child {
+      margin-bottom: 0; }
+
+  *[class^="col-"] {
+    float: left;
+    padding: 12px;
+    margin: 0; }
+
+  .col-25 {
+    width: 25%; }
+
+  .col-50 {
+    width: 50%; }
+
+  .col-75 {
+    width: 75%; }
+
+  .col-38 {
+    width: 38%; }
+
+  .col-62 {
+    width: 62%; }
+
+  .col-33 {
+    width: 33.3333%; }
+
+  .col-66 {
+    width: 66.6666%; }
+
+  .col-100 {
+    width: 100%; } }
 /*
-**	Vendors, Helpers & Media
+**	Helpers, Vendors & Media
 ==================================================================================== 
 */
-/*  Vendors
-=======================================================================================
-	This folder is for all plugins created by third-parties. 
-	Don't copy the styles to this file as it would make it difficult to update them.
-	Instead, place them in this folder as partials and import them to this page.
-==================================================================================== */
 /*  Helpers
 ============================================================================== 
 	The following styles help address special situations that may arise when
@@ -1130,15 +1224,15 @@ a:hover > .b12 {
 	These styles have some modifications from the ones in the H5BP.
 =========================================================================== */
 .cf, form,
-fieldset, .wrapper {
+form fieldset, .wrapper, .row {
   zoom: 1; }
   .cf:before, form:before,
-  fieldset:before, .wrapper:before, .cf:after, form:after,
-  fieldset:after, .wrapper:after {
+  form fieldset:before, .wrapper:before, .row:before, .cf:after, form:after,
+  form fieldset:after, .wrapper:after, .row:after {
     content: "";
     display: table; }
   .cf:after, form:after,
-  fieldset:after, .wrapper:after {
+  form fieldset:after, .wrapper:after, .row:after {
     clear: both; }
 
 .hide-text {
@@ -1193,14 +1287,20 @@ fieldset, .wrapper {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
-  padding: 0.2em 0; }
+  padding: 0.2em 0.5em; }
 
+/*  Vendors
+=======================================================================================
+	This folder is for all plugins created by third-parties. 
+	Don't copy the styles to this file as it would make it difficult to update them.
+	Instead, place them in this folder as partials and import them to this page.
+==================================================================================== */
 /*	==========================================================================
 	Media Queries for Responsive Design.
 	These examples override the primary ('mobile first') styles.
 	Modify as content requires.
 ========================================================================== */
-@media only screen and (min-width: 800px) {
+@media only screen and (min-width: 640px) {
   html, body {
     height: 100%; }
 
@@ -1208,13 +1308,13 @@ fieldset, .wrapper {
     padding-bottom: 0; }
 
   .wrapper {
-    width: 90%;
-    max-width: 800px; }
+    width: 100%;
+    max-width: 840px; }
 
   .site-header {
     height: 96px;
     height: 8rem; }
-    .site-header .site-title {
+    .site-header .site-logo {
       display: block;
       text-align: left;
       height: 96px;
@@ -1232,20 +1332,8 @@ fieldset, .wrapper {
       font-size: 1.75rem; }
 
   .site-content {
-    margin: 24px auto 48px;
-    margin: 2rem auto 4rem; }
-    .site-content .description-box {
-      width: 62%;
-      float: left; }
-      .site-content .description-box .inner {
-        padding: 0 12px 0 0;
-        padding: 0 1rem 0 0; }
-    .site-content .download-box {
-      width: 38%;
-      float: right; }
-      .site-content .download-box .inner {
-        padding: 0 0 0 12px;
-        padding: 0 0 0 1rem; }
+    margin: 24px auto;
+    margin: 2rem auto; }
 
   .site-footer p.social-box {
     float: right;

@@ -1,37 +1,45 @@
-/*  Base Styles
-============================================================================== 
-	The following lines work as a second reset layer. It defines all 
-	typographic elements, basic colors, and styles. 
-=========================================================================== */
+/*! 
+**	Base12 v0.2-beta - Updated: August 9, 2013 - http://cballenar.github.io/base12/
+==================================================================================== 
+*/
 
 /*  Reusable Mixins
 ------------------------------------------------------------------------------ */
-@mixin body-copy { @include rem('font-size', $fs-body); @include em('line-height', $fs-body, $lh-body); }
+@mixin body-copy-sizing { @include rem('font-size', $fs-body); @include em('line-height', $fs-body, $lh-body); }
 
 
 /*  Global Styles
 ------------------------------------------------------------------------------ */
-* { position:relative; background-repeat: no-repeat; }
-html, body, button, input, select, textarea { color: $color-font-body; }
+* { 
+	position:relative; 
+	background-repeat: no-repeat; 
+
+	@if $box-sizing-for-all == true {
+		-webkit-box-sizing: border-box; 
+		   -moz-box-sizing: border-box; 
+		        box-sizing: border-box; } } 
+
+html, body, button, input, select, textarea { color: $font-body-copy-color; }
 
 html { 
 	font-family: 	$font-body-copy; 
 	font-size: 		$base-font-size; 
 	line-height: 	$base-line-height; 
+	font-weight: 	$font-normal-weight;
 
-	background: 	$color-bg; 
+	background: 	$body-bg; 
 
 	* { word-wrap: break-word; } }/* Webkit Text Wrap Fix */
 
 :focus { outline: 0; }
 
 ::-moz-selection,
-::selection { background: $color-selection; text-shadow: none; }
+::selection { background: $selection-bg; color: $selection-text; text-shadow: none; }
 
 
 /*  Headings
 ------------------------------------------------------------------------------ */
-h1, h2, h3, h4, h5, h6 { font-family: $font-heading; }
+h1, h2, h3, h4, h5, h6 { font-family: $font-heading; font-weight: $font-heading-weight; }
 
 h1 { @include rem('font-size', $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
 h2 { @include rem('font-size', $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
@@ -58,7 +66,7 @@ h6  { @include rem('margin', 0 0 6px); }
 /*  Paragraphs & Lists
 ------------------------------------------------------------------------------ */
 p  {
-	@include body-copy;
+	@include body-copy-sizing;
 	@include rem('margin', 0 0 12px); }
 
 ul, 
@@ -67,7 +75,7 @@ ol{
 	@include rem('padding', 0 0 0 12px); }
 
 li {
-	@include body-copy;
+	@include body-copy-sizing;
 	@include rem('margin', 0 0 6px);
 	
 	&:last-child { margin-bottom: 0; } }
@@ -85,10 +93,10 @@ dl {
 	dt, 
 	dd { 
 		@include rem('font-size', $fs-body);
-		@include em($fs-body, 'line-height', $lh-body); }
+		@include em('line-height', $fs-body, $lh-body); }
 	
 	dt { 
-		font-weight: $font-weight-bold; 
+		font-weight: $font-strong-weight; 
 		@include rem('padding', 12px 0 0); }
 	
 	dd { margin: 0; padding: 0; } }
@@ -96,12 +104,12 @@ dl {
 
 /*  Links
 ------------------------------------------------------------------------------ */
-a { color: $color-links; 
+a { color: $link-color; 
 	text-decoration:none;
 
-	&:visited	{ color: $color-links-v; } 
-	&:hover		{ color: $color-links-h; }
-	&:active	{ color: $color-links-a; } 
+	&:visited	{ color: $link-color-v; } 
+	&:hover		{ color: $link-color-h; }
+	&:active	{ color: $link-color-a; } 
 
 	&, &:visited, &:hover, &:active { @include transition(all, .5s, ease); } }
 
@@ -110,16 +118,15 @@ a { color: $color-links;
 ------------------------------------------------------------------------------ */
 em { font-style: italic; }
 small { font-size: .75em; }
-strong { font-weight: $font-weight-bold; }
+strong { font-weight: $font-strong-weight; }
 
-code, sub, sup { line-height: 0; }
-pre { @include rem('margin', 0 0 24px); }
+sub, sup { line-height: 0; }
 
 abbr { border-bottom: 1px dotted #333; }
 
 address { 
 	font-style:italic; 
-	@include body-copy; 
+	@include body-copy-sizing; 
 	@include rem('margin', 12px 0 24px); }
 
 hr { 
@@ -137,3 +144,232 @@ audio,
 canvas,
 img,
 video { vertical-align:middle; }
+
+
+/*  Optional Elements
+ * 	The styles below can be turned off from the variables stylesheet
+------------------------------------------------------------------------------ */
+
+@if $style-code == true { /*  Code
+------------------------------------------------------------------------------ */
+code, pre { font-family: $font-monospace; font-size: 1em; }
+
+code { 
+	@include rem('padding', 0 3px);
+	@include rem('border-radius', 3px);
+
+	font-size: .8em; line-height: 0; 
+
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.05);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75); }
+
+pre { 
+	display: block;
+
+	color: $gray-darker;
+	background-color: $gray-light;
+	border: $border;
+	@include rem('margin', 0 0 24px);
+	@include rem('padding', 6px 12px); 
+	@include rem('border-radius', 3px);
+
+	@include rem('font-size', $fs-body);
+	@include em('line-height', $fs-body, 21px);
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word; } }
+
+
+@if $style-tables == true { /*  Tables
+------------------------------------------------------------------------------ */
+table,
+%table {  
+	width: 100%; 
+	border: $table-border; 
+	background: $table-bg;
+	@include rem('margin', 0 0 24px); 
+
+	th, td { 
+		@include body-copy-sizing;
+		vertical-align: top; 
+		border-top: $border; 
+
+		@include rem('padding', 12px 6px); }
+
+	thead > tr > th { }
+
+	th,
+	thead th, { 
+		text-align: left; 
+		vertical-align: bottom; 
+		color: $th-color; 
+		background: $th-bg; 
+		font-weight: $font-strong-weight; }
+
+	caption + thead,
+	colgroup + thead,
+	thead:first-child,
+	tbody:first-child {
+		tr:first-child {
+			th, td { border-top: 0; } } }
+
+	tbody tr {
+		&:nth-child(2n) td { background: $tr-even; }
+		&:nth-child(2n+1) td { background: $tr-odd; } }
+
+	tbody:last-child td,
+	tfoot:last-child td { 
+		*:first-child { margin-top: 0; }
+		*:last-child { margin-bottom: 0; } } } }
+
+
+@if $style-blockquotes == true { /*  Blockquotes
+------------------------------------------------------------------------------ */
+blockquote,
+%blockquote { 
+	quotes: none; 
+
+	@include rem('font-size', $fs-body-accent);
+	@include em('line-height', $fs-body-accent, $lh-body-accent); 
+	@include rem('margin', 0 0 24px); 
+	@include rem('padding', 12px 24px); 
+
+	border: $border;
+	@include rem('border-width', 0 0 0 6px);
+
+	&:before, 
+	&:after { content: ''; content: none; } 
+
+	p { font-size: 1em; } 
+
+	// Alternative style for blockquote
+	&.pull-quote { 
+		border: 1px solid #EBEBEB; border-width:1px 0; 
+		margin: 24px 0; padding: 12px 24px 12px 60px;
+
+		p { 
+			margin: 0; 
+			color: #4C4C4C; 
+			@include rem('font-size', 21px);
+			@include em('line-height', 21px, 27px); }
+
+		cite { 
+			font-style: italic; 
+			text-align:right; 
+			@include rem('font-size', 15px);
+			@include em('line-height', 18px, 15px);
+
+			@include rem('margin', 6px 0 0); }
+
+		& > *:last-child { margin-bottom:0; } } } }
+
+
+@if $style-forms == true { /*  Form Elements
+------------------------------------------------------------------------------ 
+	Thanks to Dave Gamache for Skeleton [https://github.com/dhg/Skeleton]
+------------------------------------------------------------------------------ */
+form,
+%form {
+	&,
+	fieldset { 
+		@include rem('margin', 0 0 24px);
+		@include rem('padding', 0 9px 6px);
+		@extend .cf; }
+
+	fieldset { @include rem('border-radius', 3px); }
+
+	input[type="text"], 
+	input[type="email"], 
+	input[type="password"], 
+	textarea, 
+	select {
+		display: block;
+		@include rem('width', 240px); max-width: 100%;
+
+		@include rem('margin', 0 0 24px);
+		@include rem('padding', 6px); 
+
+		outline: none;
+		@include rem('border-radius', 3px); 
+		
+		border: $border;
+		background: $form-field-bg; 
+		color: $form-field-text; }
+
+	select { padding: 0; }
+
+	input[type="text"]:focus,
+	input[type="password"]:focus,
+	input[type="email"]:focus,
+	textarea:focus {
+		border: $form-field-border-focus;
+		background: $form-field-bg-focus; 
+		color: $form-field-text-focus; 
+		box-shadow: inset 1px 1px 2px rgba(0,0,0,.2); }
+
+	textarea {
+		@include rem('min-height', 60px); 
+		resize: vertical; }
+
+	label, legend {
+		display: block;
+		font-family: $font-heading;
+		font-weight: $font-strong-weight;
+		@include rem('font-size', 18px);
+		@include rem('margin', 0 0 6px);}
+
+	select {
+		@include rem('width', 240px); }
+
+	input[type="checkbox"] {
+		display: inline; }
+
+	label span,
+	legend span {
+		font-weight: normal;
+		@include rem('font-size', 15px); } } }
+
+
+@if $style-buttons == true { /*  Buttons
+------------------------------------------------------------------------------ */
+button,
+%button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] { 
+	display: inline-block; cursor: pointer;
+
+	font-family: $font-heading;
+	font-weight: $font-strong-weight; 
+	text-transform: uppercase; text-align:center; 
+	@include rem('font-size', 12px);
+	@include em('line-height', 12px, 24px);
+
+	border: none; 
+	@include rem('margin', 0 6px 6px 0);
+	@include rem('padding', 6px 24px);
+
+	background: $btn-default-bg; color: $btn-default-text; 
+
+	&:hover { background: $btn-hover-bg; color: $btn-hover-text; }
+	&:active { background: $btn-active-bg; color: $btn-active-text; }
+
+	// Disabled - usually a grayed out button
+	&.btn-primary { 
+		color: $btn-primary-bg; background: $btn-primary-text; }
+
+	// Disabled - usually a grayed out button
+	&.btn-disabled { 
+		color: $btn-disabled-bg; background: $btn-disabled-text; }
+
+	// Full Width
+	&.full-width { 
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; }
+
+// Fix for odd Mozilla border & padding issues
+button::-moz-focus-inner,
+input::-moz-focus-inner { border: 0; padding: 0; } } }
