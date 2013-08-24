@@ -3,15 +3,24 @@
 
 /* Switches
 ------------------------------------------------------------------------------------ */
-$box-sizing-for-all:        true;
-$rem-to-px-fallback:        false;
+// Browser support
+$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() function
 
-// Styled elements
+// Special Styles (Use with caution)
+$animate-all-links:         true; // adds transition(all, .2s ease); to all links
+$bg-no-repeat:              true; // adds * { background: no-repeat; }
+$it-s-all-relative:         true; // adds * { position: relative; }
+$box-sizing-for-all:        true; // adds * { box-sizing: border-box; } (w/ browser prefixes)
+
+// Styled elements (Disable for absolute control)
 $style-blockquotes:         true;
 $style-tables:              true;
 $style-forms:               true;
 $style-buttons:             true;
 $style-code:                true;
+
+// 
+
 
 /* Type - use pixels for font-size & line-height
 ------------------------------------------------------------------------------------ */
@@ -51,6 +60,14 @@ $lh-h6:                     18px;
 // p, ul, ol, etc
 $fs-body:                   15px;
 $lh-body:                   21px;
+
+$ul-style:                  square;
+$ul-ul-style:               disc;
+$ul-ul-ul-style:            circle;
+
+$ol-style:                  decimal;
+$ol-ol-style:               lower-alpha;
+$ol-ol-ol-style:            lower-roman;
 
 // blockquote, lead, etc.
 $fs-body-accent:            18px;

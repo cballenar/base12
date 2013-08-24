@@ -11,8 +11,11 @@
 /*  Global Styles
 ------------------------------------------------------------------------------ */
 * { 
-	position:relative; 
-	background-repeat: no-repeat; 
+	@if $bg-no-repeat == true {
+		background-repeat: no-repeat; }
+
+	@if $it-s-all-relative == true {
+		position:relative; }
 
 	@if $box-sizing-for-all == true {
 		-webkit-box-sizing: border-box; 
@@ -55,12 +58,16 @@ h4,
 h5, 
 h6  { @include rem('margin', 0 0 6px); }
 
-	// Adjust spacing after paragraphs
-	p + h2,
-	p + h3,
-	p + h4,
-	p + h5,
-	p + h6 { @include rem('margin-top', 24px); }
+	// Adjust spacing for content
+	p + h1, p + h2, p + h3,
+	p + h4, p + h5, p + h6 { @include rem('margin-top', 24px); }
+
+	img + p,
+	img + ul, img + ol, img + dl,
+	img + h1, img + h2, img + h3,
+	img + h4, img + h5, img + h6 { @include rem('margin-top', 12px); }
+
+
 
 
 /*  Paragraphs & Lists
@@ -80,11 +87,13 @@ li {
 	
 	&:last-child { margin-bottom: 0; } }
 
-ul > li 	{ list-style: square; }
+ul        { list-style: $ul-style; }
+ul ul     { list-style: $ul-ul-style; }
+ul ul ul  { list-style: $ul-ul-ul-style; }
 
-ol li 		{ list-style: decimal; }
-ol ol li 	{ list-style: lower-alpha; }
-ol ol ol li { list-style: lower-roman; }
+ol        { list-style: $ol-style; }
+ol ol     { list-style: $ol-ol-style; }
+ol ol ol  { list-style: $ol-ol-ol-style; }
 
 dl {
 	padding: 0;
@@ -111,7 +120,8 @@ a { color: $link-color;
 	&:hover		{ color: $link-color-h; }
 	&:active	{ color: $link-color-a; } 
 
-	&, &:visited, &:hover, &:active { @include transition(all, .5s, ease); } }
+	@if $animate-all-links == true { // Switch animations for all links
+	&, &:visited, &:hover, &:active { @include transition(all, .2s, ease); } } }
 
 
 /*  Additional elements

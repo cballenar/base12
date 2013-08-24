@@ -6,9 +6,22 @@
 	These styles have some modifications from the ones in the H5BP.
 =========================================================================== */
 
+// Floated Elements
+.pull-left 	{ float: left;  }
+.pull-right { float: right; }
+
+
 // Clearfix
+// I decided to accomodate the different ways of naming .clearfix
+// .cf - minimal one, you get a clearfix!
+// .group - semantic one, you get a clearfix!
+// .clearfix - standard, you get a clearfix!
+// EVERYBODY GETS A CLEARFIX!!! 
+// P.S. Just to be clear, I'm quoting Neil Patrick Harris, playing Barney Stintson, imitating Oprah; not Oprah.
 .cf,
+.group,
 .clearfix { zoom: 1;
+	
 	&:before, &:after { content: ""; display: table; }
 	&:after { clear: both; } }
 

@@ -2,9 +2,9 @@
 __A SCSS framework built around 12__
 
 ## Huh... ?
-Base12 is a framework that provides you with a basic SCSS folder structure for your projects. Base12 measurements are built around the number 12 .
+Base12 is a framework that provides you with a basic SCSS folder structure for your projects. Its measurements are built around the number 12 for increased flexibility & math goodies.
 
-Because Base12 uses the CSS from the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/), it can be used in combination with it.
+Because Base12 uses the starting CSS from the [_HTML5 Boilerplate_](https://github.com/h5bp/html5-boilerplate/), it can be used in combination with it.
 
 ### How do I use it?
 1. Start a new project with the [Classic H5BP](http://www.initializr.com/)
@@ -66,7 +66,6 @@ The directory structure is as follows:
 |   |   |- formulas/
 |   |   |- helpers/
 |   |   |- media/
-|   |   |- modules/
 |   |   |- vendors/
 ```
 #### main.css
@@ -79,7 +78,16 @@ Here you can find and add all your partials.
 The base folder contains the `variables`, `base` and `normalize` stylesheets. [Normalize](http://necolas.github.io/normalize.css/) is the reset sheet. Variables is the file where you will customize Base12. Base is the primary file in Base12, this is where most variables end up in and defines most basic styles. Ideally these files will remain untouched unless a new release comes out.
 
 #### design/
-It contains two files `design` and `modifiers`. Design, as you can imagine, is where all the styles that define the design of the site are located. Modifiers are "element modifiers" they are simple classes that change existing elements, this includes things such as `p.lead` or `.subheader`.
+It contains three files `design`, `grid`, and `modules`. 
+
+##### _design.scss 
+As you can imagine, this is where all the styles that define the layout and design of the site are located.
+
+##### _modules.scss 
+Modules includes _element modifiers_ and _objects/modules_. Modifiers are simple classes that change core elements, this includes things such as `p.lead` or `img.img-circle`. Objects and Modules are more complex, e.g., `.media`, `.callout`, etc. There are no modules included as these tend to be more tailored to the design and architecture of the site.
+
+##### _grid.scss 
+Created specifically to host the grid system of your choosing. This file can end up empty if you decide to keep your grid tied to your `design` file.
 
 #### formulas/
 Contains mixins and formulas used in Base12, users should keep their own formulas in this folder.
@@ -90,9 +98,6 @@ As expected it contains helper classes, unlike `modifiers`, these helpers focus 
 #### media/
 It contains all the media queries and stylesheet for other media, such as print and for higher resolution screens. I wasn't sure what to name this folder, I don't think media is the best name for it. 
 
-#### modules/
-We all love Object Oriented CSS, right? This is where we get to put all those sweet modules we gather from across the webiverse! (?). I would recommend keeping the modules in their own files and then `@import` them into the `modules` stylesheet for easy management.
-
 #### vendors/
 Styles from plugins and third-party vendors. Also keep as separate files and `@import` into `vendors` stylesheet.
 
@@ -101,8 +106,10 @@ Styles from plugins and third-party vendors. Also keep as separate files and `@i
 ### Switches
 Turn features on/off according to your preferences. At the moment the features available to switch on/off are:
 
- - Universal Box Sizing
  - REM to PX fallback
+ - Universal `box-sizing: border-box`
+ - Universal NO `background-repeat`
+ - Universal relativity `position: relative`
  - Styled blockquotes
  - Styled tables
  - Styled forms
