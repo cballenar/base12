@@ -5,7 +5,7 @@
 	Returns 1 line of code, converted em values 
 	
 	Sample input:
-		.element { @include rem('line-height', 24px); }
+		.element { @include em('line-height', 24px); }
 	
 	Sample output:
 		.element { line-height: 1.5em; }
