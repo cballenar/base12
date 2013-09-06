@@ -1,0 +1,71 @@
+/*  Buttons
+------------------------------------------------------------------------------ */
+button,
+.button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] { 
+	display: inline-block; cursor: pointer;
+
+	font-family: $font-heading;
+	font-weight: $font-strong-weight; 
+	text-transform: uppercase; text-align:center; 
+	@include rem('font-size', 12px);
+	@include em('line-height', 12px, 24px);
+
+	border: none; 
+	@include rem('margin', 0 6px 6px 0);
+	@include rem('padding', 6px 24px);
+
+	background: $btn-default-bg; color: $btn-default-text; 
+
+	&:hover { background: $btn-hover-bg; color: $btn-hover-text; }
+	&:active { background: $btn-active-bg; color: $btn-active-text; }
+
+	// Disabled - usually a grayed out button
+	&.btn-primary { 
+		color: $btn-primary-bg; background: $btn-primary-text; }
+
+	// Disabled - usually a grayed out button
+	&.btn-disabled { 
+		color: $btn-disabled-bg; background: $btn-disabled-text; }
+
+	// Full Width
+	&.full-width { 
+		width: 100%;
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		text-align: center; } 
+
+	// Presable button - 3D effect
+	&.press-me {
+		font-family: $font-heading; 
+		font-weight: $font-strong-weight; 
+		text-transform: uppercase; text-align:center; 
+		@include rem('font-size', 21px);
+		@include em('line-height', 21px, 24px);
+
+		@include rem('margin', 0 6px 6px 0);
+		@include rem('padding', 12px 24px);
+
+		@include rem('border-radius', 6px);
+
+		color: $btn-primary-text;
+		background: $btn-primary-bg; 
+		box-shadow: 0 6px darken($btn-primary-bg, 10%); 
+		@include transition(all, .1s, ease);
+
+		&:hover { 
+			top: 2px;
+			background: $btn-hover-bg; 
+			box-shadow: 0 4px darken($btn-primary-bg, 10%); } 
+
+		&:active { 
+			top: 4px;
+			background: $btn-active-bg;
+			box-shadow: 0 2px darken($btn-active-bg, 10%); } 
+
+		i { 
+			top: 2px;
+			@include rem('font-size', 27px); 
+			@include em('line-height', 27px, 21px); } } }

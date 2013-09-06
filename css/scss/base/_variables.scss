@@ -1,23 +1,32 @@
-/*  Variables
+/* ====================================================================================
+**  Variables - Manage existing and new variables
 ==================================================================================== */
+
+/* Author Variables
+------------------------------------------------------------------------------------ */
+$primary-color:             #BADA55;
+$accent-color:              #DE1E7E;
+// etc...
+
 
 /* Switches
 ------------------------------------------------------------------------------------ */
-$box-sizing-for-all:        true;
-$rem-to-px-fallback:        false;
+// Browser support
+$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() function
 
-// Styled elements
-$style-blockquotes:         true;
-$style-tables:              true;
-$style-forms:               true;
-$style-buttons:             true;
-$style-code:                true;
+// Special Styles (Use with caution)
+$animate-all-links:         false; // adds transition(all, .2s ease); to all links
+$bg-no-repeat:              true; // adds * { background: no-repeat; }
+$it-s-all-relative:         true; // adds * { position: relative; }
+$box-sizing-for-all:        true; // adds * { box-sizing: border-box; } (w/ browser prefixes)
+$vertical-align-middle:     false; // adds * { vertical-align: middle; }
+
 
 /* Type - use pixels for font-size & line-height
 ------------------------------------------------------------------------------------ */
 // Base
 $base-font-size:            12px;   // Preferably in pxs
-$base-line-height:          1.5em;  // Preferably in ems
+$base-line-height:          1.62em; // Preferably in ems
 
 // Font families
 $font-heading:              'atrament-web', 'Impact', sans-serif;
@@ -27,7 +36,7 @@ $font-monospace:            'Consolas', 'Courier New', monospace;
 // Default font weight when bold
 $font-normal-weight:        400;
 $font-strong-weight:        600;
-$font-heading-weight:       600;
+$font-heading-weight:       $font-strong-weight;
 
 // Headings Sizes
 $fs-h1:                     60px; 
@@ -51,6 +60,14 @@ $lh-h6:                     18px;
 // p, ul, ol, etc
 $fs-body:                   15px;
 $lh-body:                   21px;
+
+$ul-style:                  square;
+$ul-ul-style:               disc;
+$ul-ul-ul-style:            circle;
+
+$ol-style:                  decimal;
+$ol-ol-style:               lower-alpha;
+$ol-ol-ol-style:            lower-roman;
 
 // blockquote, lead, etc.
 $fs-body-accent:            18px;
@@ -81,6 +98,10 @@ $link-color:                #F0750F;
 $link-color-h:              darken($link-color, 5%);
 $link-color-a:              #DD4B39;
 $link-color-v:              $link-color;
+
+// Misc
+$mark-bg-color:             #FFFF00;
+$mark-text-color:           $font-body-copy-color;
 
 // Borders 
 $border-color:              $gray;

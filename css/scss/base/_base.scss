@@ -1,52 +1,107 @@
-/*! 
-**	Base12 v0.3-beta - Updated: August 10, 2013 - http://cballenar.github.io/base12/
-==================================================================================== 
-*/
+/* ====================================================================================
+**  Base12 - Core Base12 styles. Avoid editing this stylesheet for easier updating.
+==================================================================================== */
 
-/*  Reusable Mixins
+/*  HTML5 display definitions
 ------------------------------------------------------------------------------ */
-@mixin body-copy-sizing { @include rem('font-size', $fs-body); @include em('line-height', $fs-body, $lh-body); }
+
+// Correct `block` display not defined in IE 8/9.
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block; }
+
+// Correct `inline-block` display not defined in IE 8/9.
+audio, canvas, video {
+	display: inline-block; }
+
+// Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices.
+audio:not([controls]) {
+	display: none;
+	height: 0; }
+
+// Address styling not present in IE 7/8/9, Firefox 3, and Safari 4. Known issue: no IE 6 support.
+// Hide the `template` element in IE, Safari, and Firefox < 22.
+[hidden], 
+template {
+	display: none; }
 
 
-/*  Global Styles
+/*  Switches for universal properties
+ * ------------------------------------------------------------------------------
+ *  http://css-tricks.com/things-it-might-be-funuseful-to-try-the-universal-selector-on/
 ------------------------------------------------------------------------------ */
 * { 
-	position:relative; 
-	background-repeat: no-repeat; 
+	// Switch universal background-repeat.
+	@if $bg-no-repeat == true {
+		background-repeat: no-repeat; }
 
+	// Switch universal relative positioning.
+	@if $it-s-all-relative == true {
+		position: relative; }
+
+	// Switch universal box-sizing
 	@if $box-sizing-for-all == true {
 		-webkit-box-sizing: border-box; 
 		   -moz-box-sizing: border-box; 
-		        box-sizing: border-box; } } 
+		        box-sizing: border-box; } 
+	
+	// Switch universal box-sizing
+	@if $vertical-align-middle == true { 
+		vertical-align: middle; } 
 
-html, body, button, input, select, textarea { color: $font-body-copy-color; }
+	// Switch universal word-break
+	// Prevent URLs from breaking out of container 
+	// http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+	@if $vertical-align-middle == true { 
+		-ms-word-break: break-all;
+		    word-break: break-all;
+		    word-break: break-word; // Non standard for webkit
+
+		-webkit-hyphens: auto;
+		   -moz-hyphens: auto;
+		        hyphens: auto; } } 
+
+
+/*  Base
+------------------------------------------------------------------------------ */
+
+// Address `font-family` inconsistency between `textarea` and other form elements
+html, button, input, select, textarea { 
+	font-family: $font-body-copy; 
+	color:       $font-body-copy-color; }
 
 html { 
-	font-family: 	$font-body-copy; 
-	font-size: 		$base-font-size; 
-	line-height: 	$base-line-height; 
-	font-weight: 	$font-normal-weight;
+	// Prevent iOS text size adjust after orientation change, without disabling user zoom.
+	-webkit-text-size-adjust: 100%; 
+	    -ms-text-size-adjust: 100%; 
 
-	background: 	$body-bg; 
+	// Set values from variables.scss
+	font-size:   $base-font-size; 
+	line-height: $base-line-height; 
+	font-weight: $font-normal-weight;
 
-	* { word-wrap: break-word; } }/* Webkit Text Wrap Fix */
+	background:  $body-bg; }
 
-:focus { outline: 0; }
+// Address margins handled incorrectly in IE 6/7.
+body {
+	margin: 0; }
 
-::-moz-selection,
-::selection { background: $selection-bg; color: $selection-text; text-shadow: none; }
+// Customize selected elements. These selection rule sets have to be separate.
+::-moz-selection { 
+	background: $selection-bg; color: $selection-text; text-shadow: none; }
+::selection { 
+	background: $selection-bg; color: $selection-text; text-shadow: none; }
 
 
 /*  Headings
 ------------------------------------------------------------------------------ */
 h1, h2, h3, h4, h5, h6 { font-family: $font-heading; font-weight: $font-heading-weight; }
 
-h1 { @include rem('font-size', $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
-h2 { @include rem('font-size', $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
-h3 { @include rem('font-size', $fs-h3); @include em('line-height', $fs-h3, $lh-h3); }
-h4 { @include rem('font-size', $fs-h4); @include em('line-height', $fs-h4, $lh-h4); }
-h5 { @include rem('font-size', $fs-h5); @include em('line-height', $fs-h5, $lh-h5); }
-h6 { @include rem('font-size', $fs-h6); @include em('line-height', $fs-h6, $lh-h6); }
+h1, %h1 { @include rem('font-size', $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
+h2, %h2 { @include rem('font-size', $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
+h3, %h3 { @include rem('font-size', $fs-h3); @include em('line-height', $fs-h3, $lh-h3); }
+h4, %h4 { @include rem('font-size', $fs-h4); @include em('line-height', $fs-h4, $lh-h4); }
+h5, %h5 { @include rem('font-size', $fs-h5); @include em('line-height', $fs-h5, $lh-h5); }
+h6, %h6 { @include rem('font-size', $fs-h6); @include em('line-height', $fs-h6, $lh-h6); }
 
 h1  { @include rem('margin', 0 0 12px);  }
 h2, 
@@ -55,18 +110,21 @@ h4,
 h5, 
 h6  { @include rem('margin', 0 0 6px); }
 
-	// Adjust spacing after paragraphs
-	p + h2,
-	p + h3,
-	p + h4,
-	p + h5,
-	p + h6 { @include rem('margin-top', 24px); }
+// Adjust spacing for content
+p + h1, p + h2, p + h3,
+p + h4, p + h5, p + h6 { @include rem('margin-top', 24px); }
+
+img + p,
+img + ul, img + ol, img + dl,
+img + h1, img + h2, img + h3,
+img + h4, img + h5, img + h6 { @include rem('margin-top', 12px); }
 
 
 /*  Paragraphs & Lists
 ------------------------------------------------------------------------------ */
 p  {
-	@include body-copy-sizing;
+	@include rem('font-size', $fs-body); 
+	@include em('line-height', $fs-body, $lh-body); 
 	@include rem('margin', 0 0 12px); }
 
 ul, 
@@ -75,16 +133,19 @@ ol{
 	@include rem('padding', 0 0 0 12px); }
 
 li {
-	@include body-copy-sizing;
+	@include rem('font-size', $fs-body); 
+	@include em('line-height', $fs-body, $lh-body); 
 	@include rem('margin', 0 0 6px);
 	
 	&:last-child { margin-bottom: 0; } }
 
-ul > li 	{ list-style: square; }
+ul        { list-style: $ul-style; }
+ul ul     { list-style: $ul-ul-style; }
+ul ul ul  { list-style: $ul-ul-ul-style; }
 
-ol li 		{ list-style: decimal; }
-ol ol li 	{ list-style: lower-alpha; }
-ol ol ol li { list-style: lower-roman; }
+ol        { list-style: $ol-style; }
+ol ol     { list-style: $ol-ol-style; }
+ol ol ol  { list-style: $ol-ol-ol-style; }
 
 dl {
 	padding: 0;
@@ -104,272 +165,196 @@ dl {
 
 /*  Links
 ------------------------------------------------------------------------------ */
-a { color: $link-color; 
-	text-decoration:none;
+a { 
+	color: $link-color; 
+	text-decoration: none;
 
+	// Remove the gray background color from active links in IE 10.
+	background: transparent; 
+
+
+	// Address `outline` inconsistency between Chrome and other browsers.
+	&:focus { outline: thin dotted; }
+
+	// outline:0 to Improve readability when focused and also mouse hovered in all browsers.
 	&:visited	{ color: $link-color-v; } 
-	&:hover		{ color: $link-color-h; }
-	&:active	{ color: $link-color-a; } 
+	&:hover		{ color: $link-color-h; outline: 0; }
+	&:active	{ color: $link-color-a; outline: 0; }  
 
-	&, &:visited, &:hover, &:active { @include transition(all, .5s, ease); } }
+	// Switch animations for all links
+	@if $animate-all-links == true { 
+		&, 
+		&:visited, 
+		&:hover, 
+		&:active { 
+			@include transition(all, .2s, ease); } } }
 
 
-/*  Additional elements
+/*  Additional Typography elements
 ------------------------------------------------------------------------------ */
 em { font-style: italic; }
-small { font-size: .75em; }
 strong { font-weight: $font-strong-weight; }
 
-sub, sup { line-height: 0; }
+// Address styling not present in Safari 5 and Chrome.
+dfn { font-style: italic; }
 
-abbr { border-bottom: 1px dotted #333; }
+// Address styling not present in IE 8/9.
+mark {
+	color: $mark-text-color; 
+	background: $mark-bg-color;}
+
+// Address styling not present in IE 8/9, Safari 5, and Chrome.
+abbr[title] { border-bottom: 1px dotted; }
 
 address { 
+	@include rem('font-size', $fs-body); 
+	@include em('line-height', $fs-body, $lh-body);  
 	font-style:italic; 
-	@include body-copy-sizing; 
-	@include rem('margin', 12px 0 24px); }
+	margin: 1em 0 2em; }
 
+// A better HR element
 hr { 
 	display: block; 
 	width: 100%; height: 0; 
+	margin: 2em 0; padding: 0; 
 	border: 0; border-top: $border; 
-	@include rem('margin', 24px 0); padding: 0; }
 
+	// Address differences between Firefox and other browsers.
+	-moz-box-sizing: content-box;
+	     box-sizing: content-box; }
 
-/*  Images & Media
- *  Remove the gap between images, videos, audio and canvas and the bottom of 
- *  their containers: h5bp.com/i/440
------------------------------------------------------------------------------- */
-audio,
-canvas,
-img,
-video { vertical-align:middle; }
+// Correct font family set oddly in Safari 5 and Chrome.
+code, kbd, pre, samp {
+    font-family: $font-monospace;
+    font-size: 1em; }
 
-
-/*  Optional Elements
- * 	The styles below can be turned off from the variables stylesheet
------------------------------------------------------------------------------- */
-
-@if $style-code == true { /*  Code
------------------------------------------------------------------------------- */
-code, pre { font-family: $font-monospace; font-size: 1em; }
-
-code { 
-	@include rem('padding', 0 3px);
-	@include rem('border-radius', 3px);
-
-	font-size: .8em; line-height: 0; 
-
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	background-color: rgba(0, 0, 0, 0.05);
-	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75); }
-
+// Improve readability of pre-formatted text in all browsers.
 pre { 
-	display: block;
+	white-space: pre-wrap; }
 
-	color: $gray-darker;
-	background-color: $gray-light;
-	border: $border;
-	@include rem('margin', 0 0 24px);
-	@include rem('padding', 6px 12px); 
-	@include rem('border-radius', 3px);
+// Remove the gap between images, videos, audio and canvas and the bottom of their containers: h5bp.com/i/440
+audio, canvas, img, video { 
+	vertical-align: middle; }
 
-	@include rem('font-size', $fs-body);
-	@include em('line-height', $fs-body, 21px);
-	white-space: pre-wrap;
-	word-break: break-all;
-	word-wrap: break-word; } }
+// Set consistent quote types.
+q {
+    quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+// Address inconsistent and variable font size in all browsers.
+small {
+    font-size: 80%; }
+
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+sub, sup { 
+	font-size: .75em;
+	line-height: 0; 
+	position: relative;
+	vertical-align: baseline; }
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
 
 
-@if $style-tables == true { /*  Tables
+/*  Embedded Content
 ------------------------------------------------------------------------------ */
-table,
-%table {  
-	width: 100%; 
-	border: $table-border; 
-	background: $table-bg;
-	@include rem('margin', 0 0 24px); 
+// Remove border when inside `a` element in IE 8/9.
+img { border: 0; }
 
-	th, td { 
-		@include body-copy-sizing;
-		vertical-align: top; 
-		border-top: $border; 
+// Correct overflow displayed oddly in IE 9.
+svg:not(:root) { overflow: hidden; }
 
-		@include rem('padding', 12px 6px); }
-
-	thead > tr > th { }
-
-	th,
-	thead th, { 
-		text-align: left; 
-		vertical-align: bottom; 
-		color: $th-color; 
-		background: $th-bg; 
-		font-weight: $font-strong-weight; }
-
-	caption + thead,
-	colgroup + thead,
-	thead:first-child,
-	tbody:first-child {
-		tr:first-child {
-			th, td { border-top: 0; } } }
-
-	tbody tr {
-		&:nth-child(2n) td { background: $tr-even; }
-		&:nth-child(2n+1) td { background: $tr-odd; } }
-
-	tbody:last-child td,
-	tfoot:last-child td { 
-		*:first-child { margin-top: 0; }
-		*:last-child { margin-bottom: 0; } } } }
+// Address margin not present in IE 8/9 and Safari 5.
+figure { margin: 0 0 2em; }
 
 
-@if $style-blockquotes == true { /*  Blockquotes
+/*  Tables
 ------------------------------------------------------------------------------ */
-blockquote,
-%blockquote { 
-	quotes: none; 
-
-	@include rem('font-size', $fs-body-accent);
-	@include em('line-height', $fs-body-accent, $lh-body-accent); 
-	@include rem('margin', 0 0 24px); 
-	@include rem('padding', 12px 24px); 
-
-	border: $border;
-	@include rem('border-width', 0 0 0 6px);
-
-	&:before, 
-	&:after { content: ''; content: none; } 
-
-	p { font-size: 1em; } 
-
-	// Alternative style for blockquote
-	&.pull-quote { 
-		border: 1px solid #EBEBEB; border-width:1px 0; 
-		margin: 24px 0; padding: 12px 24px 12px 60px;
-
-		p { 
-			margin: 0; 
-			color: #4C4C4C; 
-			@include rem('font-size', 21px);
-			@include em('line-height', 21px, 27px); }
-
-		cite { 
-			font-style: italic; 
-			text-align:right; 
-			@include rem('font-size', 15px);
-			@include em('line-height', 18px, 15px);
-
-			@include rem('margin', 6px 0 0); }
-
-		& > *:last-child { margin-bottom:0; } } } }
+// Remove most spacing between table cells.
+table {
+	border-spacing: 0; 
+	border-collapse: collapse; }
 
 
-@if $style-forms == true { /*  Form Elements
------------------------------------------------------------------------------- 
-	Thanks to Dave Gamache for Skeleton [https://github.com/dhg/Skeleton]
+/*  Forms
 ------------------------------------------------------------------------------ */
-form,
-%form {
-	&,
-	fieldset { 
-		@include rem('margin', 0 0 24px);
-		@include rem('padding', 0 9px 6px);
-		@extend .cf; }
+// Define consistent border, margin, and padding.
+fieldset {
+    border: $border;
+    margin: 0 .25em;
+    padding: 0.25em 0.5em 0.75em; }
 
-	fieldset { @include rem('border-radius', 3px); }
+// Correct `color` not being inherited in IE 8/9.
+// Remove padding so people aren't caught out if they zero out fieldsets.
+legend {
+    border: 0; 
+    padding: 0; }
 
-	input[type="text"], 
-	input[type="email"], 
-	input[type="password"], 
-	textarea, 
-	select {
-		display: block;
-		@include rem('width', 240px); max-width: 100%;
-
-		@include rem('margin', 0 0 24px);
-		@include rem('padding', 6px); 
-
-		outline: none;
-		@include rem('border-radius', 3px); 
-		
-		border: $border;
-		background: $form-field-bg; 
-		color: $form-field-text; }
-
-	select { padding: 0; }
-
-	input[type="text"]:focus,
-	input[type="password"]:focus,
-	input[type="email"]:focus,
-	textarea:focus {
-		border: $form-field-border-focus;
-		background: $form-field-bg-focus; 
-		color: $form-field-text-focus; 
-		box-shadow: inset 1px 1px 2px rgba(0,0,0,.2); }
-
-	textarea {
-		@include rem('min-height', 60px); 
-		resize: vertical; }
-
-	label, legend {
-		display: block;
-		font-family: $font-heading;
-		font-weight: $font-strong-weight;
-		@include rem('font-size', 18px);
-		@include rem('margin', 0 0 6px);}
-
-	select {
-		@include rem('width', 240px); }
-
-	input[type="checkbox"] {
-		display: inline; }
-
-	label span,
-	legend span {
-		font-weight: normal;
-		@include rem('font-size', 15px); } } }
-
-
-@if $style-buttons == true { /*  Buttons
------------------------------------------------------------------------------- */
+// Correct font family not being inherited in all browsers.
+// Correct font size not being inherited in all browsers.
+// Address margins set differently in Firefox 4+, Safari 5, and Chrome.
 button,
-%button,
-input[type="submit"],
+input,
+select,
+textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0; }
+
+// Address Firefox 4+ setting `line-height` on `input` using `!important` in the UA stylesheet.
+button, input {
+    line-height: normal; }
+
+// Address inconsistent `text-transform` inheritance for `button` and `select`.
+// All other form control elements do not inherit `text-transform` values.
+// Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+// Correct `select` style inheritance in Firefox 4+ and Opera.
+button, select {
+    text-transform: none; }
+
+// Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio` and `video` controls.
+// Correct inability to style clickable `input` types in iOS.
+// Improve usability and consistency of cursor style between image-type `input` and others.
+button,
 input[type="reset"],
-input[type="button"] { 
-	display: inline-block; cursor: pointer;
+input[type="submit"],
+html input[type="button"] {
+    -webkit-appearance: button; 
+    cursor: pointer; }
 
-	font-family: $font-heading;
-	font-weight: $font-strong-weight; 
-	text-transform: uppercase; text-align:center; 
-	@include rem('font-size', 12px);
-	@include em('line-height', 12px, 24px);
+// Re-set default cursor for disabled elements.
+button[disabled],
+html input[disabled] {
+    cursor: default;}
 
-	border: none; 
-	@include rem('margin', 0 6px 6px 0);
-	@include rem('padding', 6px 24px);
+// Address box sizing set to `content-box` in IE 8/9/10.
+// Remove excess padding in IE 8/9/10.
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box; 
+    padding: 0; }
 
-	background: $btn-default-bg; color: $btn-default-text; 
+// Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+// Address `box-sizing` set to `border-box` in Safari 5 and Chrome (include `-moz` to future-proof).
+input[type="search"] {
+	-webkit-appearance: textfield; 
 
-	&:hover { background: $btn-hover-bg; color: $btn-hover-text; }
-	&:active { background: $btn-active-bg; color: $btn-active-text; }
+	-webkit-box-sizing: content-box; 
+	   -moz-box-sizing: content-box;
+	        box-sizing: content-box; }
 
-	// Disabled - usually a grayed out button
-	&.btn-primary { 
-		color: $btn-primary-bg; background: $btn-primary-text; }
+// Remove inner padding and search cancel button in Safari 5 and Chrome on OS X.
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; }
 
-	// Disabled - usually a grayed out button
-	&.btn-disabled { 
-		color: $btn-disabled-bg; background: $btn-disabled-text; }
-
-	// Full Width
-	&.full-width { 
-		width: 100%;
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-		text-align: center; }
-
-// Fix for odd Mozilla border & padding issues
+// Remove inner padding and border in Firefox 4+.
 button::-moz-focus-inner,
-input::-moz-focus-inner { border: 0; padding: 0; } } }
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+
+// Remove default vertical scrollbar in IE 8/9.
+// Improve readability and alignment in all browsers.
+textarea {
+	overflow: auto; 
+	vertical-align: top; }

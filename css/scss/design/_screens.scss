@@ -1,8 +1,6 @@
-/*	==========================================================================
-	Media Queries for Responsive Design.
-	These examples override the primary ('mobile first') styles.
-	Modify as content requires.
-========================================================================== */
+/* ====================================================================================
+**  Media Queries for Responsive Design.
+==================================================================================== */
 
 @media only screen and (min-width: 640px) {
 
@@ -52,5 +50,5 @@
 	(-o-min-device-pixel-ratio: 5/4),
 	(-webkit-min-device-pixel-ratio: 1.25),
 	(min-resolution: 120dpi) {
-	/* Style adjustments for high resolution devices */
+	// Style adjustments for high resolution devices
 }

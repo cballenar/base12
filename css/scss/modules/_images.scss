@@ -1,0 +1,13 @@
+/*  Image modifiers
+------------------------------------------------------------------------------ */
+img {
+	&.img-scaled {
+		max-width: 100%;
+		height: auto; } 
+
+	&.img-bordered { 
+		padding: 2px; 
+		border: $border; } 
+
+	&.img-circle {
+		border-radius: 100%; } }

@@ -1,6 +1,5 @@
-/*  Layout
-=======================================================================================
-	Put all your layout and design related styles here.
+/* ====================================================================================
+**  Design - Manage layout and design related styles here.
 ==================================================================================== */
 
 // For sticky footer
@@ -27,7 +26,7 @@ html, body { height: 100%; }
 	font-family: $font-heading;
 	background:#202020; color: #FBFBFB;
 	overflow: hidden; white-space: nowrap;
-	
+
 	a { color: #EBEBEB; }
 	
 	.site-logo { 
@@ -69,3 +68,6 @@ html, body { height: 100%; }
 // Misc Globals
 .b12 { color: #F0750F; } 
 a:hover > .b12 { color: $link-color-h; }
+
+
+

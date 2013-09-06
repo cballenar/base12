@@ -1,0 +1,27 @@
+/*  Code
+------------------------------------------------------------------------------ */
+code { 
+	@include rem('padding', 0 3px);
+	@include rem('border-radius', 3px);
+
+	font-size: .8em; line-height: 0; 
+
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	background-color: rgba(0, 0, 0, 0.05);
+	text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75); }
+
+pre { 
+	display: block;
+
+	color: $gray-darker;
+	background-color: $gray-light;
+	border: $border;
+	@include rem('margin', 0 0 24px);
+	@include rem('padding', 6px 12px); 
+	@include rem('border-radius', 3px);
+
+	@include rem('font-size', $fs-body);
+	@include em('line-height', $fs-body, 21px);
+	white-space: pre-wrap;
+	word-break: break-all;
+	word-wrap: break-word; }
