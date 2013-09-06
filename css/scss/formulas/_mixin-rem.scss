@@ -27,7 +27,7 @@ $baseline_px: $base-font-size;
 	// If IE support enabled print px value
 	@if $rem-to-px-fallback == true {
 		// Print the first line in pixel values
-		#{$property}: $value-in-px;
+		#{$property}: $px_values;
 	}
 
 	// If only one (numeric) value, return the property/value line for it.
