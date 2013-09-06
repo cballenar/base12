@@ -1,0 +1,14 @@
+/* ====================================================================================
+**  Media Queries for Responsive Design.
+==================================================================================== */
+
+@media only screen and (min-width: 480px) {
+	// Style adjustments for screens wider than 480px
+}
+
+@media print,
+	(-o-min-device-pixel-ratio: 5/4),
+	(-webkit-min-device-pixel-ratio: 1.25),
+	(min-resolution: 120dpi) {
+	// Style adjustments for high resolution devices
+}

@@ -25,20 +25,18 @@ The boilerplate allows you to do some basic and, I must admit, not so polished c
 This is done through the `_variables.scss` file. In here you will find variables for common styles such as type color, background, border, font sizes for headings and paragraphs, etc.
 
 ```scss
-/*  Variables
-==================================================================================== */
-
-/* Switches - turn features on/off
+/* Switches
 ------------------------------------------------------------------------------------ */
-$box-sizing-for-all:        true;  // add *{box-sizing:border-box} prefixed
-$rem-to-px-fallback:        false; // create px fallback for rem() formula
+// Browser support
+$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() function
 
-// Styled elements
-$style-blockquotes:         true;
-$style-tables:              true;
-$style-forms:               true;
-$style-buttons:             true;
-$style-code:                true;
+// Special Styles (Use with caution)
+$animate-all-links:         true; // adds transition(all, .2s ease); to all links
+$bg-no-repeat:              true; // adds * { background: no-repeat; }
+$it-s-all-relative:         true; // adds * { position: relative; }
+$box-sizing-for-all:        true; // adds * { box-sizing: border-box; } (w/ browser prefixes)
+$vertical-align-middle:     true; // adds * { vertical-align: middle; }
+
 
 /* Type - use pixels for font-size & line-height
 ------------------------------------------------------------------------------------ */
@@ -64,8 +62,7 @@ The directory structure is as follows:
 |   |   |- base/
 |   |   |- design/
 |   |   |- formulas/
-|   |   |- helpers/
-|   |   |- media/
+|   |   |- modules/
 |   |   |- vendors/
 ```
 #### main.css
@@ -75,31 +72,34 @@ Compressed output file.
 Here you can find and add all your partials.
 
 #### base/
-The base folder contains the `variables`, `base` and `normalize` stylesheets. [Normalize](http://necolas.github.io/normalize.css/) is the reset sheet. Variables is the file where you will customize Base12. Base is the primary file in Base12, this is where most variables end up in and defines most basic styles. Ideally these files will remain untouched unless a new release comes out.
+The base folder contains the `variables` and `base` stylesheets. [Variables is the file where you will customize Base12. Base is the primary file in Base12, this is where most variables end up in and defines most basic styles. Ideally these files will remain untouched unless a new release comes out. Base includes styles from Normalize](http://necolas.github.io/normalize.css/) and the H5BP. So it's an all-in-one reset & basic styler.
 
 #### design/
-It contains three files `design`, `grid`, and `modules`. 
+It contains a few files all related to the design of your site `design`, `grid`, `objects`, `helpers`, `print`, and `screens`. 
 
 ##### _design.scss 
 As you can imagine, this is where all the styles that define the layout and design of the site are located.
 
-##### _modules.scss 
-Modules includes _element modifiers_ and _objects/modules_. Modifiers are simple classes that change core elements, this includes things such as `p.lead` or `img.img-circle`. Objects and Modules are more complex, e.g., `.media`, `.callout`, etc. There are no modules included as these tend to be more tailored to the design and architecture of the site.
-
 ##### _grid.scss 
 Created specifically to host the grid system of your choosing. This file can end up empty if you decide to keep your grid tied to your `design` file.
+
+##### _objects.scss 
+Objects can be fairly complex elements, e.g., `.media`, `.callout`, etc. There are no objects included as these tend to be more tailored to the design and architecture of the site.
+
+##### _helpers.scss
+As expected it contains helper classes and you will find some basic that can be useful in almost any design.
+
+##### \_print.scss & \_screen.scss 
+Contain all the media queries and stylesheet for other media, such as print and for higher resolution screens. 
 
 #### formulas/
 Contains mixins and formulas used in Base12, users should keep their own formulas in this folder.
 
-#### helpers/
-As expected it contains helper classes, unlike `modifiers`, these helpers focus more on the function rather than the visual.
-
-#### media/
-It contains all the media queries and stylesheet for other media, such as print and for higher resolution screens. I wasn't sure what to name this folder, I don't think media is the best name for it. 
+#### modules/
+Includes multiple stylesheets which can be useful or used as a starting point for your own designs. These modules are often basic modifiers, that build upon core elements. These include blockquotes, tables, forms, code, images, etc.
 
 #### vendors/
-Styles from plugins and third-party vendors. Also keep as separate files and `@import` into `vendors` stylesheet.
+Third-party vendor stylesheets can be copied into this folder and then linked via the _vendors.scss stylesheet or directly through the main.scss for quicker access.
 
 ## Goodies
 
@@ -107,14 +107,11 @@ Styles from plugins and third-party vendors. Also keep as separate files and `@i
 Turn features on/off according to your preferences. At the moment the features available to switch on/off are:
 
  - REM to PX fallback
+ - Animate all links
  - Universal `box-sizing: border-box`
  - Universal NO `background-repeat`
  - Universal relativity `position: relative`
- - Styled blockquotes
- - Styled tables
- - Styled forms
- - Styled buttons
- - Styled code
+ - Universal `vertical-align: middle`
 
 ### Formulas
 The boilerplate includes a few formulas (mixins) to help here and there. I plan to add more depending on which ones get used the most.

@@ -1,5 +1,13 @@
-/*  Variables
+/* ====================================================================================
+**  Variables - Manage existing and new variables
 ==================================================================================== */
+
+/* Author Variables
+------------------------------------------------------------------------------------ */
+$primary-color:             #BADA55;
+$accent-color:              #DE1E7E;
+// etc...
+
 
 /* Switches
 ------------------------------------------------------------------------------------ */
@@ -11,15 +19,7 @@ $animate-all-links:         true; // adds transition(all, .2s ease); to all link
 $bg-no-repeat:              true; // adds * { background: no-repeat; }
 $it-s-all-relative:         true; // adds * { position: relative; }
 $box-sizing-for-all:        true; // adds * { box-sizing: border-box; } (w/ browser prefixes)
-
-// Styled elements (Disable for absolute control)
-$style-blockquotes:         true;
-$style-tables:              true;
-$style-forms:               true;
-$style-buttons:             true;
-$style-code:                true;
-
-// 
+$vertical-align-middle:     true; // adds * { vertical-align: middle; }
 
 
 /* Type - use pixels for font-size & line-height
@@ -98,6 +98,10 @@ $link-color:                #1B4781;
 $link-color-h:              darken($link-color, 5%);
 $link-color-a:              #DD4B39;
 $link-color-v:              $link-color;
+
+// Misc
+$mark-bg-color:             #FFFF00;
+$mark-text-color:           $font-body-copy-color;
 
 // Borders 
 $border-color:              $gray;
