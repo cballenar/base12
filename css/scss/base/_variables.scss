@@ -28,6 +28,15 @@ $vertical-align-middle:     true; // adds * { vertical-align: middle; }
 $base-font-size:            12px;   // Preferably in pxs
 $base-line-height:          1.62em; // Preferably in ems
 
+// Spacing
+$space-4:                   $base-font-size/4;
+$space-3:                   $base-font-size/3;
+$space-2:                   $base-font-size/2;
+$space:                     $base-font-size;
+$spacex2:                   $base-font-size*2;
+$spacex3:                   $base-font-size*3;
+$spacex4:                   $base-font-size*4;
+
 // Font families
 $font-heading:              'Helvetica', sans-serif;
 $font-body-copy:            'Times New Roman', Times, serif;
@@ -61,6 +70,10 @@ $lh-h6:                     18px;
 $fs-body:                   15px;
 $lh-body:                   21px;
 
+// blockquote, lead, etc.
+$fs-body-accent:            18px;
+$lh-body-accent:            24px;
+
 $ul-style:                  square;
 $ul-ul-style:               disc;
 $ul-ul-ul-style:            circle;
@@ -68,10 +81,6 @@ $ul-ul-ul-style:            circle;
 $ol-style:                  decimal;
 $ol-ol-style:               lower-alpha;
 $ol-ol-ol-style:            lower-roman;
-
-// blockquote, lead, etc.
-$fs-body-accent:            18px;
-$lh-body-accent:            24px;
 
 
 /* Colors

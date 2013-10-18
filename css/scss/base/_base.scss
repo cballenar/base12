@@ -96,46 +96,46 @@ body {
 ------------------------------------------------------------------------------ */
 h1, h2, h3, h4, h5, h6 { font-family: $font-heading; font-weight: $font-heading-weight; }
 
-h1, %h1 { @include rem('font-size', $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
-h2, %h2 { @include rem('font-size', $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
-h3, %h3 { @include rem('font-size', $fs-h3); @include em('line-height', $fs-h3, $lh-h3); }
-h4, %h4 { @include rem('font-size', $fs-h4); @include em('line-height', $fs-h4, $lh-h4); }
-h5, %h5 { @include rem('font-size', $fs-h5); @include em('line-height', $fs-h5, $lh-h5); }
-h6, %h6 { @include rem('font-size', $fs-h6); @include em('line-height', $fs-h6, $lh-h6); }
+h1, %h1 { @include em('font-size', $base-font-size, $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
+h2, %h2 { @include em('font-size', $base-font-size, $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
+h3, %h3 { @include em('font-size', $base-font-size, $fs-h3); @include em('line-height', $fs-h3, $lh-h3); }
+h4, %h4 { @include em('font-size', $base-font-size, $fs-h4); @include em('line-height', $fs-h4, $lh-h4); }
+h5, %h5 { @include em('font-size', $base-font-size, $fs-h5); @include em('line-height', $fs-h5, $lh-h5); }
+h6, %h6 { @include em('font-size', $base-font-size, $fs-h6); @include em('line-height', $fs-h6, $lh-h6); }
 
-h1  { @include rem('margin', 0 0 12px);  }
+h1  { @include rem('margin', 0 0 $space);  }
 h2, 
 h3, 
 h4, 
 h5, 
-h6  { @include rem('margin', 0 0 6px); }
+h6  { @include rem('margin', 0 0 $space-2); }
 
 // Adjust spacing for content
 p + h1, p + h2, p + h3,
-p + h4, p + h5, p + h6 { @include rem('margin-top', 24px); }
+p + h4, p + h5, p + h6 { @include rem('margin-top', $spacex2); }
 
 img + p,
 img + ul, img + ol, img + dl,
 img + h1, img + h2, img + h3,
-img + h4, img + h5, img + h6 { @include rem('margin-top', 12px); }
+img + h4, img + h5, img + h6 { @include rem('margin-top', $space); }
 
 
 /*  Paragraphs & Lists
 ------------------------------------------------------------------------------ */
 p  {
-	@include rem('font-size', $fs-body); 
+	@include em('font-size', $base-font-size, $fs-body); 
 	@include em('line-height', $fs-body, $lh-body); 
-	@include rem('margin', 0 0 12px); }
+	@include rem('margin', 0 0 $space); }
 
 ul, 
 ol{ 
-	@include rem('margin', 12px 0 24px 24px);
-	@include rem('padding', 0 0 0 12px); }
+	@include rem('margin', $space 0 $spacex2 $spacex2);
+	@include rem('padding', 0 0 0 $space); }
 
 li {
-	@include rem('font-size', $fs-body); 
+	@include em('font-size', $base-font-size, $fs-body); 
 	@include em('line-height', $fs-body, $lh-body); 
-	@include rem('margin', 0 0 6px);
+	@include rem('margin', 0 0 $space-2);
 	
 	&:last-child { margin-bottom: 0; } }
 
@@ -149,18 +149,30 @@ ol ol ol  { list-style: $ol-ol-ol-style; }
 
 dl {
 	padding: 0;
-	@include rem('margin', 12px 0 24px);
+	@include rem('margin', $space 0 $spacex2);
 
 	dt, 
 	dd { 
-		@include rem('font-size', $fs-body);
+		@include em('font-size', $base-font-size, $fs-body);
 		@include em('line-height', $fs-body, $lh-body); }
 	
 	dt { 
 		font-weight: $font-strong-weight; 
-		@include rem('padding', 12px 0 0); }
+		@include rem('padding', $space 0 0); }
 	
 	dd { margin: 0; padding: 0; } }
+
+
+// Nested elements adjustments
+li p,
+li li,
+blockquote p { font-size: 1em; }
+
+
+// Correct spacing issues
+li {
+	> ul,
+	> ol { margin-bottom: $space; } }
 
 
 /*  Links
@@ -207,16 +219,16 @@ mark {
 abbr[title] { border-bottom: 1px dotted; }
 
 address { 
-	@include rem('font-size', $fs-body); 
+	@include em('font-size', $base-font-size, $fs-body); 
 	@include em('line-height', $fs-body, $lh-body);  
 	font-style:italic; 
-	margin: 1em 0 2em; }
+	margin: $space 0 $spacex2; }
 
 // A better HR element
 hr { 
 	display: block; 
 	width: 100%; height: 0; 
-	margin: 2em 0; padding: 0; 
+	margin: $spacex2 0; padding: 0; 
 	border: 0; border-top: $border; 
 
 	// Address differences between Firefox and other browsers.
@@ -264,7 +276,7 @@ img { border: 0; }
 svg:not(:root) { overflow: hidden; }
 
 // Address margin not present in IE 8/9 and Safari 5.
-figure { margin: 0 0 2em; }
+figure { margin: 0 0 $spacex2; }
 
 
 /*  Tables
@@ -280,7 +292,7 @@ table {
 // Define consistent border, margin, and padding.
 fieldset {
     border: $border;
-    margin: 0 .25em;
+    margin: 0 $space;
     padding: 0.25em 0.5em 0.75em; }
 
 // Correct `color` not being inherited in IE 8/9.
