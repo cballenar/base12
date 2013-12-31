@@ -15,11 +15,11 @@ $accent-color:              #DE1E7E;
 $rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() function
 
 // Special Styles (Use with caution)
-$animate-all-links:         true; // adds transition(all, .2s ease); to all links
-$bg-no-repeat:              true; // adds * { background: no-repeat; }
-$it-s-all-relative:         true; // adds * { position: relative; }
-$box-sizing-for-all:        true; // adds * { box-sizing: border-box; } (w/ browser prefixes)
-$vertical-align-middle:     true; // adds * { vertical-align: middle; }
+$animate-all-links:         false; // adds transition(all, .2s ease); to all links
+$bg-no-repeat:              false; // adds * { background: no-repeat; }
+$it-s-all-relative:         false; // adds * { position: relative; }
+$box-sizing-for-all:        false; // adds * { box-sizing: border-box; } (w/ browser prefixes)
+$vertical-align-middle:     false; // adds * { vertical-align: middle; }
 
 
 /* Type - use pixels for font-size & line-height

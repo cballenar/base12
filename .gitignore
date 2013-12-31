@@ -5,6 +5,9 @@ Thumbs.db
 .Spotlight-V100
 .Trashes
 
+# Node
+node_modules
+
 # Others
 *.sass-cache
 *.sublime-project
