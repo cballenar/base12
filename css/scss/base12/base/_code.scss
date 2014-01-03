@@ -1,0 +1,50 @@
+/* ====================================================================================
+**  Code & Alike
+==================================================================================== */
+
+// Correct font family set oddly in Safari 5 and Chrome.
+code, kbd, pre, samp {
+    font-family: $font-monospace;
+    font-size: 1em; }
+
+// Improve readability of pre-formatted text in all browsers.
+pre { 
+	white-space: pre-wrap; }
+
+
+/*  Basic Styles
+------------------------------------------------------------------------------ */
+@if $basic-code == true { 
+	code { 
+		@include rem('padding', 0 3px);
+		@include rem('border-radius', 3px);
+
+		font-size: .9375em; line-height: 0; 
+
+		border: 1px solid rgba(0, 0, 0, 0.1);
+		background-color: rgba(0, 0, 0, 0.05);
+		text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.75); }
+
+	pre { 
+		display: block;
+
+		color: $gray-darkest;
+		background-color: $gray-lighter;
+		border: $border;
+		@include rem('margin', 0 0 24px);
+		@include rem('padding', 6px 12px); 
+		@include rem('border-radius', 3px);
+
+		@include rem('font-size', $fs-body);
+		@include em('line-height', $fs-body, 21px);
+		white-space: pre-wrap;
+		word-break: break-all;
+		word-wrap: break-word; 
+
+		code {
+			line-height: inherit; 
+
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background-color: transparent; } } }

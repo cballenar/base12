@@ -31,12 +31,8 @@ module.exports = function(grunt) {
 
 		watch: {
 			sass: {
-				files:['<%= b12.app %>/css/**/*.scss'],
-				tasks:['sass']
-			},
-			copy: {
-				files: ['<%= b12.app %>/css/main.min.css'],
-				tasks: ['copy']
+				files: ['<%= b12.app %>/css/**/*.scss'],
+				tasks: ['sass', 'autoprefixer', 'copy']
 			},
 			livereload: {
 				options: { livereload: true },
@@ -52,6 +48,15 @@ module.exports = function(grunt) {
 				files: {
 					'<%= b12.app %>/css/main.min.css' : '<%= b12.app %>/css/scss/main.scss'
 				}
+			}
+		},
+
+		autoprefixer: {
+			options: {
+
+			},
+			dist: {
+				src: '<%= b12.app %>/css/main.min.css'
 			}
 		},
 

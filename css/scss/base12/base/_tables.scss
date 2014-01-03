@@ -1,0 +1,52 @@
+/* ====================================================================================
+**  Tables
+==================================================================================== */
+
+table {
+	// Remove most spacing between table cells.
+	border-spacing: 0; 
+	border-collapse: collapse; }
+
+
+/*  Basic Styling
+------------------------------------------------------------------------------ */
+@if $basic-tables == true { 
+	table {  
+		width: 100%; 
+		border: $table-border; 
+		background: $table-bg;
+		@include rem('margin', 0 0 24px); 
+
+		th, td { 
+			@include rem('font-size', $fs-body); 
+			@include em('line-height', $fs-body, $lh-body); 
+			vertical-align: top; 
+			border-top: $border; 
+
+			@include rem('padding', 12px 6px); }
+
+		thead > tr > th { }
+
+		th,
+		thead th { 
+			text-align: left; 
+			vertical-align: bottom; 
+			color: $th-color; 
+			background: $th-bg; 
+			font-weight: $font-strong-weight; }
+
+		caption + thead,
+		colgroup + thead,
+		thead:first-child,
+		tbody:first-child {
+			tr:first-child {
+				th, td { border-top: 0; } } }
+
+		tbody tr {
+			&:nth-child(2n) td { background: $tr-even; }
+			&:nth-child(2n+1) td { background: $tr-odd; } }
+
+		tbody:last-child td,
+		tfoot:last-child td { 
+			*:first-child { margin-top: 0; }
+			*:last-child { margin-bottom: 0; } } } }
