@@ -53,7 +53,7 @@ module.exports = function(grunt) {
 
 		autoprefixer: {
 			options: {
-
+				browsers: ['> 1%', 'last 2 version', 'ie 8', 'ie 9', 'firefox 24', 'opera 12.1' ]
 			},
 			dist: {
 				src: '<%= b12.app %>/css/main.min.css'
