@@ -1,0 +1,23 @@
+/* ====================================================================================
+**  Media & Embedded Elements
+==================================================================================== */
+
+// Remove border when inside `a` element in IE 8/9.
+img { 
+	border: 0; 
+	max-width: 100%; 
+
+	&[width],
+	&[height] { max-width: none; } } 
+
+// Address margin not present in IE 8/9 and Safari 5.
+figure { 
+	margin: 0 0 $spacex2; 
+
+	& > img { display: block; } }
+
+// Correct overflow displayed oddly in IE 9.
+svg:not(:root) { overflow: hidden; }
+
+// Remove the gap between images, videos, audio and canvas and the bottom of their containers: h5bp.com/i/440
+audio, canvas, img, video { vertical-align: middle; }

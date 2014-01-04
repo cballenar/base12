@@ -2,6 +2,12 @@
 **  Design - Manage layout and design related styles here.
 ==================================================================================== */
 
-
-
+// For presentational purposes only. Modify at will.
+html { border-top: $space-2 solid $accent-color; }
+body { 
+	margin: 0 auto;
+	padding: $space;
+	width: 90%;
+	min-width: 360px;
+	max-width: 660px; }
 

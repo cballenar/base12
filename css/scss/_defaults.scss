@@ -12,21 +12,41 @@ $accent-color:              #DE1E7E;
 /* Switches
 ------------------------------------------------------------------------------------ */
 // Browser support
-$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() function
+$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() mixin
+$rgba-to-hex-fallback:      false; // Adds hex fallback to properties that usem the alpha-me() mixin
 
-// Special Styles (Use with caution)
-$animate-all-links:         true; // adds transition(all, .2s ease); to all links
-$bg-no-repeat:              true; // adds * { background: no-repeat; }
-$it-s-all-relative:         true; // adds * { position: relative; }
-$box-sizing-for-all:        true; // adds * { box-sizing: border-box; } (w/ browser prefixes)
-$vertical-align-middle:     true; // adds * { vertical-align: middle; }
+// Universal Styles (Use with caution!)
+$universal-word-break:      false; // adds * { word-break: break-all; word-break: break-word; hyphens: auto; } 
+$universal-bg-no-repeat:    false; // adds * { background: no-repeat; }
+$universal-relativity:      false; // adds * { position: relative; }
+$universal-middle-align:    false; // adds * { vertical-align: middle; }
+$universal-border-box:      false; // adds * { box-sizing: border-box; }
+
+// Basic Styles
+$basic-blockquotes:         true;
+$basic-tables:              true;
+$basic-forms:               true;
+$basic-buttons:             true;
+$basic-code:                true;
+
+// Debugging
+$debug-mode:                false;
 
 
-/* Type - use pixels for font-size & line-height
+/* Type
 ------------------------------------------------------------------------------------ */
 // Base
 $base-font-size:            12px;   // Preferably in pxs
 $base-line-height:          1.62em; // Preferably in ems
+
+// Spacing
+$space-4:                   $base-font-size/4;
+$space-3:                   $base-font-size/3;
+$space-2:                   $base-font-size/2;
+$space:                     $base-font-size;
+$spacex2:                   $base-font-size*2;
+$spacex3:                   $base-font-size*3;
+$spacex4:                   $base-font-size*4;
 
 // Font families
 $font-heading:              'Helvetica', sans-serif;
@@ -38,7 +58,8 @@ $font-normal-weight:        400;
 $font-strong-weight:        600;
 $font-heading-weight:       $font-strong-weight;
 
-// Headings Sizes
+// Headings Sizes/Line Heights
+// Use pixels as these numbers will go through the rem formula
 $fs-h1:                     48px; 
 $lh-h1:                     51px; 
 
@@ -58,8 +79,12 @@ $fs-h6:                     12px;
 $lh-h6:                     18px; 
 
 // p, ul, ol, etc
-$fs-body:                   15px;
-$lh-body:                   21px;
+$fs-body:                   18px;
+$lh-body:                   24px;
+
+// blockquote, lead, etc.
+$fs-body-accent:            24px;
+$lh-body-accent:            30px;
 
 $ul-style:                  square;
 $ul-ul-style:               disc;
@@ -69,53 +94,53 @@ $ol-style:                  decimal;
 $ol-ol-style:               lower-alpha;
 $ol-ol-ol-style:            lower-roman;
 
-// blockquote, lead, etc.
-$fs-body-accent:            18px;
-$lh-body-accent:            24px;
-
 
 /* Colors
 ------------------------------------------------------------------------------------ */
 
 // Primary Colors
-$gray-lighter:              #FBFBFB; 
-$gray-light:                #EBEBEB; 
-$gray:                      #DADADA; 
-$gray-dark:                 #707070; 
-$gray-darker:               #202020; 
+$gray-lightest:             #FBFBFB; 
+$gray-lighter:              #F3F3F3; 
+$gray-light:                #DADADA; 
+$gray:                      #888888; 
+$gray-dark:                 #666666; 
+$gray-darker:               #404040; 
+$gray-darkest:              #202020; 
 
 // Basic Elements
-$body-bg:                   $gray-lighter;
+$body-bg:                   $gray-lightest;
 
 $font-body-copy-color:      $gray-darker;
-$font-heading-color:        inherit; // If inherit it will use the color for the body copy
+$font-lead-copy-color:      inherit; // If inherit it will use the color for the body copy
+$font-heading-color:        $accent-color; // If inherit it will use the color for the body copy
 
-$selection-text:            $gray-light;
-$selection-bg:              $gray-darker; // Browser default is #B3D4FC
+$selection-text:            $gray-lighter;
+$selection-bg:              $gray-darkest; // Browser default is #B3D4FC
 
 // Link colors
-$link-color:                #1B4781;
+$link-color:                $accent-color;
 $link-color-h:              darken($link-color, 5%);
 $link-color-a:              #DD4B39;
 $link-color-v:              $link-color;
 
 // Misc
-$mark-bg-color:             #FFFF00;
+$mark-bg-color:             #FFFF99;
 $mark-text-color:           $font-body-copy-color;
 
 // Borders 
-$border-color:              $gray;
+$border-color:              $gray-light;
 $border:                    1px solid $border-color;
 
 
-/* Other Elements - Ignore if they're turned off
+/* Other Elements
+** Ignore if they're turned off
 ------------------------------------------------------------------------------------ */
 
 // Blockquotes
 $blockquote-font-size:      $fs-body-accent;
 $blockquote-line-height:    $lh-body-accent;
-$blockquote-font-color:     $gray-dark;
-$blockquote-border-color:   $gray;
+$blockquote-font-color:     $gray-darker;
+$blockquote-border-color:   $gray-light;
 
 // Table colors
 $table-bg:                  transparent;
@@ -130,18 +155,18 @@ $tr-even:                   transparent;
 $tr-border:                 $border;
 
 // Forms
-$form-field-bg:             darken($gray-lighter,.5%);
-$form-field-bg-focus:       $gray-lighter;
+$form-field-bg:             darken($gray-lightest,.5%);
+$form-field-bg-focus:       $gray-lightest;
 
-$form-field-text:           $gray-dark;
-$form-field-text-focus:     $gray-darker;
+$form-field-text:           $gray-darker;
+$form-field-text-focus:     $gray-darkest;
 
 $form-field-border:         $border;
 $form-field-border-focus:   1px solid darken($border-color, 10%);
 
 // Buttons
 $btn-default-bg:            #4D90FE;
-$btn-default-text:          $gray-lighter;
+$btn-default-text:          $gray-lightest;
 
 $btn-hover-bg:              darken($btn-default-bg, 5%);
 $btn-hover-text:            lighten($btn-default-text, 5%);
@@ -152,5 +177,5 @@ $btn-active-text:           lighten($btn-default-text, 5%);
 $btn-primary-bg:            $btn-default-bg;
 $btn-primary-text:          $btn-default-text;
 
-$btn-disabled-bg:           $gray;
+$btn-disabled-bg:           $gray-light;
 $btn-disabled-text:         darken($gray, 10%);
