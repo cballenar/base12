@@ -20,9 +20,7 @@ ol{
 li {
 	@include em('font-size', $base-font-size, $fs-body); 
 	@include em('line-height', $fs-body, $lh-body); 
-	@include rem('margin', 0 0 $space-2);
-	
-	&:last-child { margin-bottom: 0; } }
+	@include rem('margin', 0 0 $space-2); }
 
 ul        { list-style: $ul-style; }
 ul ul     { list-style: $ul-ul-style; }
@@ -129,3 +127,7 @@ blockquote p { font-size: 1em; }
 li {
 	> ul,
 	> ol { margin-bottom: $space; } }
+
+// Last item adjustments
+li:last-child,
+blockquote > *:last-child { margin-bottom: 0; }

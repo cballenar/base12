@@ -12,7 +12,8 @@ $accent-color:              #DE1E7E;
 /* Switches
 ------------------------------------------------------------------------------------ */
 // Browser support
-$rem-to-px-fallback:        true; // Adds px fallback to properties that use the rem() function
+$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() mixin
+$rgba-to-hex-fallback:      false; // Adds hex fallback to properties that usem the alpha-me() mixin
 
 // Universal Styles (Use with caution!)
 $universal-word-break:      false; // adds * { word-break: break-all; word-break: break-word; hyphens: auto; } 
@@ -78,12 +79,12 @@ $fs-h6:                     12px;
 $lh-h6:                     18px; 
 
 // p, ul, ol, etc
-$fs-body:                   15px;
-$lh-body:                   21px;
+$fs-body:                   18px;
+$lh-body:                   24px;
 
 // blockquote, lead, etc.
-$fs-body-accent:            18px;
-$lh-body-accent:            24px;
+$fs-body-accent:            24px;
+$lh-body-accent:            30px;
 
 $ul-style:                  square;
 $ul-ul-style:               disc;
@@ -99,7 +100,7 @@ $ol-ol-ol-style:            lower-roman;
 
 // Primary Colors
 $gray-lightest:             #FBFBFB; 
-$gray-lighter:              #EBEBEB; 
+$gray-lighter:              #F3F3F3; 
 $gray-light:                #DADADA; 
 $gray:                      #888888; 
 $gray-dark:                 #666666; 
@@ -109,20 +110,21 @@ $gray-darkest:              #202020;
 // Basic Elements
 $body-bg:                   $gray-lightest;
 
-$font-body-copy-color:      $gray-darkest;
-$font-heading-color:        inherit; // If inherit it will use the color for the body copy
+$font-body-copy-color:      $gray-darker;
+$font-lead-copy-color:      inherit; // If inherit it will use the color for the body copy
+$font-heading-color:        $accent-color; // If inherit it will use the color for the body copy
 
 $selection-text:            $gray-lighter;
 $selection-bg:              $gray-darkest; // Browser default is #B3D4FC
 
 // Link colors
-$link-color:                #1B4781;
+$link-color:                $accent-color;
 $link-color-h:              darken($link-color, 5%);
 $link-color-a:              #DD4B39;
 $link-color-v:              $link-color;
 
 // Misc
-$mark-bg-color:             #FFFF00;
+$mark-bg-color:             #FFFF99;
 $mark-text-color:           $font-body-copy-color;
 
 // Borders 
