@@ -2,7 +2,7 @@
 **  Headings
 ==================================================================================== */
 
-h1, h2, h3, h4, h5, h6 { font-family: $font-heading; font-weight: $font-heading-weight; }
+h1, h2, h3, h4, h5, h6 { font-family: $font-heading; font-weight: $font-heading-weight; color: $font-heading-color; }
 
 h1, %h1 { @include em('font-size', $base-font-size, $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
 h2, %h2 { @include em('font-size', $base-font-size, $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
