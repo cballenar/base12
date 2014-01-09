@@ -40,10 +40,9 @@ dl {
 		@include em('line-height', $fs-body, $lh-body); }
 	
 	dt { 
-		font-weight: $font-strong-weight; 
-		@include rem('padding', $space 0 0); }
+		font-weight: $font-strong-weight; }
 	
-	dd { margin: 0; padding: 0; } }
+	dd { padding: 0; margin: 0 0 $space; } }
 
 
 /*  Links
@@ -129,5 +128,6 @@ li {
 	> ol { margin-bottom: $space; } }
 
 // Last item adjustments
+dd:last-child,
 li:last-child,
 blockquote > *:last-child { margin-bottom: 0; }

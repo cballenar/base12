@@ -89,10 +89,14 @@ textarea {
 ------------------------------------------------------------------------------ */
 @if $basic-forms == true { 
 
+	button, input, select, textarea {
+		box-sizing: border-box;
+		font-family: $form-item-font-family; }
+
 	form,
 	fieldset { 
-		@include rem('margin', 0 0 24px);
-		@include rem('padding', 0 9px 6px);
+		@include rem('margin', $space 0 $spacex2);
+		@include rem('padding', 0 12px 6px);
 		@extend .cf; }
 
 	fieldset { @include rem('border-radius', 3px); }
@@ -103,10 +107,12 @@ textarea {
 	textarea, 
 	select {
 		display: block;
-		@include rem('width', 240px); max-width: 100%;
+		width: 100%; max-width: 100%;
 
-		@include rem('margin', 0 0 24px);
-		@include rem('padding', 6px); 
+		@include rem('font-size', $form-item-font-size);
+
+		@include rem('margin', 0 0 $space);
+		@include rem('padding', $space-2); 
 
 		outline: none;
 		@include rem('border-radius', 3px); 
@@ -114,8 +120,6 @@ textarea {
 		border: $border;
 		background: $form-field-bg; 
 		color: $form-field-text; }
-
-	select { padding: 0; }
 
 	input[type="text"]:focus,
 	input[type="password"]:focus,
@@ -134,11 +138,8 @@ textarea {
 		display: block;
 		font-family: $font-heading;
 		font-weight: $font-strong-weight;
-		@include rem('font-size', 18px);
+		@include rem('font-size', $form-label-font-size);
 		@include rem('margin', 0 0 6px);}
-
-	select {
-		@include rem('width', 240px); }
 
 	input[type="checkbox"] {
 		display: inline; }

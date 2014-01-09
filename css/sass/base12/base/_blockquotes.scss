@@ -8,7 +8,7 @@
 		@include em('line-height', $fs-body-accent, $lh-body-accent); 
 
 		@include rem('margin', 0 0 $spacex2); 
-		@include rem('padding', $space $spacex2); 
+		@include rem('padding', $space 0 $space $spacex2); 
 
 		border: $border;
 		@include rem('border-width', 0 0 0 $space-2);
@@ -21,8 +21,8 @@
 
 		// Alternative style for blockquote
 		&.pull-quote { 
-			margin: $spacex2 0; 
-			padding: $spacex2 $space*5;
+			@include rem('margin', $spacex2 0); 
+			@include rem('padding', $spacex2 60px); 
 
 			border: $border; 
 			border-width: 1px 0; 
