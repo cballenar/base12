@@ -5,9 +5,9 @@
 // For presentational purposes only. Modify at will.
 html { border-top: $space-2 solid $accent-color; }
 body { 
-	margin: 0 auto;
+	margin: $spacex2 auto;
 	padding: $space;
 	width: 90%;
 	min-width: 360px;
-	max-width: 660px; }
+	max-width: 720px; }
 

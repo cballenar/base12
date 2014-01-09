@@ -34,7 +34,7 @@ pre {
 		@include em('line-height', $fs-body, 21px);
 
 		@include b12-code; 
-		@include rem('margin', 0 0 $spacex2);
+		@include rem('margin', $space 0 $spacex2);
 		@include rem('padding', $space-2 $space); 
 
 		white-space: pre-wrap;

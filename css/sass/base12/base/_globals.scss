@@ -57,11 +57,6 @@ template {
 /*  Base
 ------------------------------------------------------------------------------ */
 
-// Address `font-family` inconsistency between `textarea` and other form elements
-html, button, input, select, textarea { 
-	font-family: $font-body-copy; 
-	color:       $font-body-copy-color; }
-
 html { 
 	// Prevent iOS text size adjust after orientation change, without disabling user zoom.
 	-webkit-text-size-adjust: 100%; 
@@ -72,6 +67,8 @@ html {
 	font-size:   $base-font-size; 
 	line-height: $base-line-height; 
 	font-weight: $font-normal-weight;
+	font-family: $font-body-copy; 
+	color:       $font-body-copy-color; 
 
 	background:  $body-bg; }
 

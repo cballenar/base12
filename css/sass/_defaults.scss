@@ -60,31 +60,33 @@ $font-heading-weight:       $font-strong-weight;
 
 // Headings Sizes/Line Heights
 // Use pixels as these numbers will go through the rem formula
-$fs-h1:                     48px; 
-$lh-h1:                     51px; 
 
-$fs-h2:                     36px; 
-$lh-h2:                     42px; 
+//                                   LG  MD
+$fs-h1:                     60px; // 72  60
+$lh-h1:                     66px; // 78  66
 
-$fs-h3:                     27px; 
-$lh-h3:                     33px; 
+$fs-h2:                     36px; // 48  36
+$lh-h2:                     42px; // 54  42
 
-$fs-h4:                     21px; 
-$lh-h4:                     27px; 
+$fs-h3:                     30px; // 36  30
+$lh-h3:                     36px; // 42  36
 
-$fs-h5:                     15px; 
-$lh-h5:                     21px; 
+$fs-h4:                     24px; // 30  24
+$lh-h4:                     30px; // 36  30
 
-$fs-h6:                     12px; 
-$lh-h6:                     18px; 
+$fs-h5:                     18px; // 24  18
+$lh-h5:                     24px; // 30  24
+
+$fs-h6:                     18px; // 24  18
+$lh-h6:                     24px; // 30  24
 
 // p, ul, ol, etc
-$fs-body:                   18px;
-$lh-body:                   24px;
+$fs-body:                   18px; // 24  18
+$lh-body:                   24px; // 36  24
 
 // blockquote, lead, etc.
-$fs-body-accent:            24px;
-$lh-body-accent:            30px;
+$fs-body-accent:            24px; // 30  24
+$lh-body-accent:            30px; // 42  30
 
 $ul-style:                  square;
 $ul-ul-style:               disc;
@@ -155,6 +157,10 @@ $tr-even:                   transparent;
 $tr-border:                 $border;
 
 // Forms
+$form-item-font-size:       15px;
+$form-label-font-size:      18px;
+$form-item-font-family:     $font-heading;
+
 $form-field-bg:             darken($gray-lightest,.5%);
 $form-field-bg-focus:       $gray-lightest;
 

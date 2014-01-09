@@ -46,7 +46,7 @@ module.exports = function(grunt) {
 					style: 'compressed'
 				},
 				files: {
-					'<%= b12.app %>/css/main.min.css' : '<%= b12.app %>/css/scss/main.scss'
+					'<%= b12.app %>/css/main.min.css' : '<%= b12.app %>/css/sass/main.scss'
 				}
 			}
 		},
