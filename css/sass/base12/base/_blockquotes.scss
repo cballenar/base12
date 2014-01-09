@@ -1,0 +1,32 @@
+/*  Blockquotes
+------------------------------------------------------------------------------ */
+@if $basic-blockquotes == true { 
+	blockquote { 
+		quotes: none; 
+
+		@include rem('font-size', $fs-body-accent);
+		@include em('line-height', $fs-body-accent, $lh-body-accent); 
+
+		@include rem('margin', 0 0 $spacex2); 
+		@include rem('padding', $space 0 $space $spacex2); 
+
+		border: $border;
+		@include rem('border-width', 0 0 0 $space-2);
+
+		p { font-size: 1em; } 
+		cite { line-height: .875em; }
+
+		&:after, 
+		&:before { content: ''; content: none; } 
+
+		// Alternative style for blockquote
+		&.pull-quote { 
+			@include rem('margin', $spacex2 0); 
+			@include rem('padding', $spacex2 60px); 
+
+			border: $border; 
+			border-width: 1px 0; 
+
+			cite { 
+				font-style: italic; 
+				text-align: right; } } } }

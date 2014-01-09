@@ -17,8 +17,7 @@ html, body { height: 100%; }
 .wrapper {
 	width: 100%;
 	margin: 0 auto; 
-	@extend .cf; 
-}
+	@extend .cf; }
 
 
 // Site Header
@@ -68,6 +67,4 @@ html, body { height: 100%; }
 // Misc Globals
 .b12 { color: #F0750F; } 
 a:hover > .b12 { color: $link-color-h; }
-
-
-
+.subheader { color: #707070; }

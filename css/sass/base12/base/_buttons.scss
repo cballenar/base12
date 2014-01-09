@@ -1,0 +1,38 @@
+/*  Buttons
+------------------------------------------------------------------------------ */
+@if $basic-buttons == true { 
+	button,
+	input[type="submit"],
+	input[type="reset"],
+	input[type="button"] { 
+		display: inline-block; cursor: pointer;
+
+		font-family: $font-heading;
+		font-weight: $font-strong-weight; 
+		text-transform: uppercase; text-align:center; 
+		@include rem('font-size', 12px);
+		@include em('line-height', 12px, 24px);
+
+		border: none; 
+		@include rem('margin', 0 6px 6px 0);
+		@include rem('padding', 6px 24px);
+
+		background: $btn-default-bg; color: $btn-default-text; 
+
+		&:hover { background: $btn-hover-bg; color: $btn-hover-text; }
+		&:active { background: $btn-active-bg; color: $btn-active-text; }
+
+		// Disabled - usually a grayed out button
+		&.btn-primary { 
+			color: $btn-primary-bg; background: $btn-primary-text; }
+
+		// Disabled - usually a grayed out button
+		&.btn-disabled { 
+			color: $btn-disabled-bg; background: $btn-disabled-text; }
+
+		// Full Width
+		&.full-width { 
+			width: 100%;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			text-align: center; } } }

@@ -1,0 +1,133 @@
+/* ====================================================================================
+**  Copy elements
+==================================================================================== */
+
+/*  Paragraphs
+------------------------------------------------------------------------------ */
+p  {
+	@include em('font-size', $base-font-size, $fs-body); 
+	@include em('line-height', $fs-body, $lh-body); 
+	@include rem('margin', 0 0 $space); }
+
+
+/*  Lists
+------------------------------------------------------------------------------ */
+ul, 
+ol{ 
+	@include rem('margin', $space 0 $spacex2 $spacex2);
+	@include rem('padding', 0 0 0 $space); }
+
+li {
+	@include em('font-size', $base-font-size, $fs-body); 
+	@include em('line-height', $fs-body, $lh-body); 
+	@include rem('margin', 0 0 $space-2); }
+
+ul        { list-style: $ul-style; }
+ul ul     { list-style: $ul-ul-style; }
+ul ul ul  { list-style: $ul-ul-ul-style; }
+
+ol        { list-style: $ol-style; }
+ol ol     { list-style: $ol-ol-style; }
+ol ol ol  { list-style: $ol-ol-ol-style; }
+
+dl {
+	padding: 0;
+	@include rem('margin', $space 0 $spacex2);
+
+	dt, 
+	dd { 
+		@include em('font-size', $base-font-size, $fs-body);
+		@include em('line-height', $fs-body, $lh-body); }
+	
+	dt { 
+		font-weight: $font-strong-weight; }
+	
+	dd { padding: 0; margin: 0 0 $space; } }
+
+
+/*  Links
+------------------------------------------------------------------------------ */
+a { 
+	color: $link-color; 
+	text-decoration: none;
+
+	// Remove the gray background color from active links in IE 10.
+	background: transparent; 
+
+	// Address `outline` inconsistency between Chrome and other browsers.
+	&:focus { outline: thin dotted; }
+
+	// outline:0 to Improve readability when focused and also mouse hovered in all browsers.
+	&:visited	{ color: $link-color-v; } 
+	&:hover		{ color: $link-color-h; outline: 0; }
+	&:active	{ color: $link-color-a; outline: 0; } }
+
+
+/*  Additional Typography elements
+------------------------------------------------------------------------------ */
+em { font-style: italic; }
+strong { font-weight: $font-strong-weight; }
+
+// Address styling not present in Safari 5 and Chrome.
+dfn { font-style: italic; }
+
+// Address styling not present in IE 8/9.
+mark {
+	color: $mark-text-color; 
+	background: $mark-bg-color;}
+
+// Address styling not present in IE 8/9, Safari 5, and Chrome.
+abbr[title] { border-bottom: 1px dotted; }
+
+address { 
+	@include em('font-size', $base-font-size, $fs-body); 
+	@include em('line-height', $fs-body, $lh-body);  
+	font-style:italic; 
+	margin: $space 0 $spacex2; }
+
+// A better HR element
+hr { 
+	display: block; 
+	width: 100%; height: 0; 
+	margin: $spacex2 0; padding: 0; 
+	border: 0; border-top: $border; 
+
+	// Address differences between Firefox and other browsers.
+	box-sizing: content-box; }
+
+// Set consistent quote types.
+q {
+	quotes: "\201C" "\201D" "\2018" "\2019"; }
+
+// Address inconsistent and variable font size in all browsers.
+small {
+	font-size: 80%; }
+
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+sub, sup { 
+	font-size: .75em;
+	line-height: 0; 
+	position: relative;
+	vertical-align: baseline; }
+
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+
+/*  Adjustments
+------------------------------------------------------------------------------ */
+
+// Nested elements
+li p,
+li li,
+blockquote p { font-size: 1em; }
+
+// Correct spacing issues
+li {
+	> ul,
+	> ol { margin-bottom: $space; } }
+
+// Last item adjustments
+dd:last-child,
+li:last-child,
+blockquote > *:last-child { margin-bottom: 0; }

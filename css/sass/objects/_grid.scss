@@ -1,5 +1,5 @@
 /* ====================================================================================
-**  Grid - Place your favorite grid system here.
+**  Grid
 ==================================================================================== */
 
 // Basic Grid System
@@ -16,12 +16,6 @@
 	*:last-child { margin-bottom: 0; } }
 
 @media only screen and (min-width: 640px) {
-	// Basic Grid System
-	.row { 
-		@extend .cf; 
-		@include rem('margin', 0 0 24px); 
-		&:last-child { margin-bottom: 0; } }
-
 	*[class^="col-"] { 
 		float: left; 
 		padding: 12px; margin: 0; }

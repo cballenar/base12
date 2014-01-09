@@ -1,0 +1,48 @@
+/* ====================================================================================
+**  Code & Alike
+==================================================================================== */
+
+// Correct font family set oddly in Safari 5 and Chrome.
+code, kbd, pre, samp {
+    font-family: $font-monospace;
+    font-size: 1em; }
+
+// Improve readability of pre-formatted text in all browsers.
+pre { 
+	white-space: pre-wrap; }
+
+// Styles for code elements
+@mixin b12-code {
+	@include rem('border-radius', $space-4);
+	border: $border;
+	background-color: $gray-lighter; }
+
+
+/*  Basic Styles
+------------------------------------------------------------------------------ */
+@if $basic-code == true { 
+
+	code { 
+		font-size: .9375em; 
+		line-height: 0; // Prevent alignment issues
+
+		@include b12-code; 
+		@include rem('padding', 0 $space-4); }
+
+	pre { 
+		@include rem('font-size', $fs-body);
+		@include em('line-height', $fs-body, 21px);
+
+		@include b12-code; 
+		@include rem('margin', $space 0 $spacex2);
+		@include rem('padding', $space-2 $space); 
+
+		white-space: pre-wrap;
+		word-break: break-all;
+		word-wrap: break-word; 
+
+		// Remove <code> styles when inside a <pre> block
+		code { 
+			line-height: inherit; 
+			padding: 0; 
+			border-radius: 0; border: 0; background-color: transparent; } } }

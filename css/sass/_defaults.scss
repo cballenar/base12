@@ -1,0 +1,187 @@
+/* ====================================================================================
+**  Variables - Manage existing and new variables
+==================================================================================== */
+
+/* Author Variables
+------------------------------------------------------------------------------------ */
+$primary-color:             #BADA55;
+$accent-color:              #DE1E7E;
+// etc...
+
+
+/* Switches
+------------------------------------------------------------------------------------ */
+// Browser support
+$rem-to-px-fallback:        false; // Adds px fallback to properties that use the rem() mixin
+$rgba-to-hex-fallback:      false; // Adds hex fallback to properties that usem the alpha-me() mixin
+
+// Universal Styles (Use with caution!)
+$universal-word-break:      false; // adds * { word-break: break-all; word-break: break-word; hyphens: auto; } 
+$universal-bg-no-repeat:    true; // adds * { background: no-repeat; }
+$universal-relativity:      true; // adds * { position: relative; }
+$universal-middle-align:    false; // adds * { vertical-align: middle; }
+$universal-border-box:      true; // adds * { box-sizing: border-box; }
+
+// Basic Styles
+$basic-blockquotes:         true;
+$basic-tables:              true;
+$basic-forms:               true;
+$basic-buttons:             false;
+$basic-code:                true;
+
+// Debugging
+$debug-mode:                false;
+
+
+/* Type
+------------------------------------------------------------------------------------ */
+// Base
+$base-font-size:            12px;   // Preferably in pxs
+$base-line-height:          1.62em; // Preferably in ems
+
+// Spacing
+$space-4:                   $base-font-size/4;
+$space-3:                   $base-font-size/3;
+$space-2:                   $base-font-size/2;
+$space:                     $base-font-size;
+$spacex2:                   $base-font-size*2;
+$spacex3:                   $base-font-size*3;
+$spacex4:                   $base-font-size*4;
+
+// Font families
+$font-heading:              'atrament-web', 'Impact', sans-serif;
+$font-body-copy:            'jubilat', serif;
+$font-monospace:            'Consolas', 'Courier New', monospace;
+
+// Default font weight when bold
+$font-normal-weight:        400;
+$font-strong-weight:        600;
+$font-heading-weight:       $font-strong-weight;
+
+// Headings Sizes/Line Heights
+// Use pixels as these numbers will go through the rem formula
+
+//                                   LG  MD
+$fs-h1:                     60px; // 72  60
+$lh-h1:                     63px; // 78  66
+
+$fs-h2:                     36px; // 48  36
+$lh-h2:                     42px; // 54  42
+
+$fs-h3:                     27px; // 36  30
+$lh-h3:                     33px; // 42  36
+
+$fs-h4:                     21px; // 30  24
+$lh-h4:                     27px; // 36  30
+
+$fs-h5:                     15px; // 24  18
+$lh-h5:                     21px; // 30  24
+
+$fs-h6:                     12px; // 24  18
+$lh-h6:                     18px; // 30  24
+
+// p, ul, ol, etc
+$fs-body:                   15px; // 24  18
+$lh-body:                   21px; // 36  24
+
+// blockquote, lead, etc.
+$fs-body-accent:            18px; // 30  24
+$lh-body-accent:            24px; // 42  30
+
+$ul-style:                  square;
+$ul-ul-style:               disc;
+$ul-ul-ul-style:            circle;
+
+$ol-style:                  decimal;
+$ol-ol-style:               lower-alpha;
+$ol-ol-ol-style:            lower-roman;
+
+
+/* Colors
+------------------------------------------------------------------------------------ */
+
+// Primary Colors
+$gray-lightest:             #FBFBFB; 
+$gray-lighter:              #EBEBEB; 
+$gray-light:                #DADADA; 
+$gray:                      #888888; 
+$gray-dark:                 #666666; 
+$gray-darker:               #404040; 
+$gray-darkest:              #202020; 
+
+// Basic Elements
+$body-bg:                   $gray-lighter;
+
+$font-body-copy-color:      $gray-darkest;
+$font-lead-copy-color:      inherit; // If inherit it will use the color for the body copy
+$font-heading-color:        inherit; // If inherit it will use the color for the body copy
+
+$selection-text:            $gray-lighter;
+$selection-bg:              $gray-darkest; // Browser default is #B3D4FC
+
+// Link colors
+$link-color:                #F0750F;
+$link-color-h:              darken($link-color, 5%);
+$link-color-a:              #DD4B39;
+$link-color-v:              $link-color;
+
+// Misc
+$mark-bg-color:             #FFFF99;
+$mark-text-color:           $font-body-copy-color;
+
+// Borders 
+$border-color:              $gray-light;
+$border:                    1px solid $border-color;
+
+
+/* Other Elements
+** Ignore if they're turned off
+------------------------------------------------------------------------------------ */
+
+// Blockquotes
+$blockquote-font-size:      $fs-body-accent;
+$blockquote-line-height:    $lh-body-accent;
+$blockquote-font-color:     $gray-darker;
+$blockquote-border-color:   $gray-light;
+
+// Table colors
+$table-bg:                  transparent;
+$table-border:              none;
+
+$th-bg:                     transparent;
+$th-color:                  $font-body-copy-color;
+$th-border:                 $border;
+
+$tr-odd:                    transparent;
+$tr-even:                   transparent;
+$tr-border:                 $border;
+
+// Forms
+$form-item-font-size:       15px;
+$form-label-font-size:      18px;
+$form-item-font-family:     $font-heading;
+
+$form-field-bg:             darken($gray-lightest,.5%);
+$form-field-bg-focus:       $gray-lightest;
+
+$form-field-text:           $gray-darker;
+$form-field-text-focus:     $gray-darkest;
+
+$form-field-border:         $border;
+$form-field-border-focus:   1px solid darken($border-color, 10%);
+
+// Buttons
+$btn-default-bg:            #F0750F;
+$btn-default-text:          $gray-lightest;
+
+$btn-hover-bg:              darken($btn-default-bg, 5%);
+$btn-hover-text:            lighten($btn-default-text, 5%);
+
+$btn-active-bg:             $link-color-a;
+$btn-active-text:           lighten($btn-default-text, 5%);
+
+$btn-primary-bg:            $btn-default-bg;
+$btn-primary-text:          $btn-default-text;
+
+$btn-disabled-bg:           $gray-light;
+$btn-disabled-text:         darken($gray, 10%);

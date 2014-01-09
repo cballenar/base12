@@ -1,9 +1,0 @@
-/* ====================================================================================
-**	transition() - By CBallenar [ https://github.com/cballenar ]
-==================================================================================== */
-@mixin transition($property:all, $duration:.5s, $timing: ease, $delay: null) { 
-	-webkit-transition: $property $duration $timing $delay; 
-	   -moz-transition: $property $duration $timing $delay; 
-	    -ms-transition: $property $duration $timing $delay; 
-	     -o-transition: $property $duration $timing $delay; 
-	        transition: $property $duration $timing $delay; }

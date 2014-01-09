@@ -2,7 +2,7 @@
 **	rem() - By GrowDigital [ https://gist.github.com/growdigital/1778907 ]
 =======================================================================================
 	'rem' is a Sass mixin that converts pixel values to rem values
-	Returns 2 lines of code — regular pixel values and converted rem values 
+	Returns 2 lines of code - regular pixel values and converted rem values 
 
 	Sample input:
 		.element { @include rem('padding',10px 0 2px 5px); }
@@ -27,7 +27,7 @@ $baseline_px: $base-font-size;
 	// If IE support enabled print px value
 	@if $rem-to-px-fallback == true {
 		// Print the first line in pixel values
-		#{$property}: $value-in-px;
+		#{$property}: $px_values;
 	}
 
 	// If only one (numeric) value, return the property/value line for it.

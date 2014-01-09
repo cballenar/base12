@@ -1,0 +1,28 @@
+/* ====================================================================================
+**  Headings
+==================================================================================== */
+
+h1, h2, h3, h4, h5, h6 { font-family: $font-heading; font-weight: $font-heading-weight; color: $font-heading-color; }
+
+h1, %h1 { @include em('font-size', $base-font-size, $fs-h1); @include em('line-height', $fs-h1, $lh-h1); }
+h2, %h2 { @include em('font-size', $base-font-size, $fs-h2); @include em('line-height', $fs-h2, $lh-h2); }
+h3, %h3 { @include em('font-size', $base-font-size, $fs-h3); @include em('line-height', $fs-h3, $lh-h3); }
+h4, %h4 { @include em('font-size', $base-font-size, $fs-h4); @include em('line-height', $fs-h4, $lh-h4); }
+h5, %h5 { @include em('font-size', $base-font-size, $fs-h5); @include em('line-height', $fs-h5, $lh-h5); }
+h6, %h6 { @include em('font-size', $base-font-size, $fs-h6); @include em('line-height', $fs-h6, $lh-h6); }
+
+h1  { @include rem('margin', 0 0 $space);  }
+h2, 
+h3, 
+h4, 
+h5, 
+h6  { @include rem('margin', 0 0 $space-2); }
+
+// Adjust spacing for content
+p + h1, p + h2, p + h3,
+p + h4, p + h5, p + h6 { @include rem('margin-top', $spacex2); }
+
+img + p,
+img + ul, img + ol, img + dl,
+img + h1, img + h2, img + h3,
+img + h4, img + h5, img + h6 { @include rem('margin-top', $space); }

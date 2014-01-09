@@ -1,0 +1,81 @@
+/* ====================================================================================
+**  Globals
+==================================================================================== */
+
+/*  Universal properties
+------------------------------------------------------------------------------ */
+* { 
+
+	// Prevent URLs from breaking out of container 
+	// http://css-tricks.com/snippets/css/prevent-long-urls-from-breaking-out-of-container/
+	@if $universal-word-break == true { 
+		word-break: break-all;
+		word-break: break-word; // Non standard for webkit
+		hyphens: auto; } 
+
+	// Prevent background repeat
+	// http://css-tricks.com/things-it-might-be-funuseful-to-try-the-universal-selector-on/
+	@if $universal-bg-no-repeat == true {
+		background-repeat: no-repeat; }
+
+	// Universal relative positioning
+	@if $universal-relativity == true {
+		position: relative; }
+
+	// Universal middle vertical alignment
+	@if $universal-middle-align == true { 
+		vertical-align: middle; } 
+
+	// Universal border box sizing
+	@if $universal-border-box == true {
+		box-sizing: border-box; } } 
+
+
+/*  HTML5 display definitions
+------------------------------------------------------------------------------ */
+
+// Correct `block` display not defined in IE 8/9.
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+	display: block; }
+
+// Correct `inline-block` display not defined in IE 8/9.
+audio, canvas, video {
+	display: inline-block; }
+
+// Prevent modern browsers from displaying `audio` without controls. Remove excess height in iOS 5 devices.
+audio:not([controls]) {
+	display: none;
+	height: 0; }
+
+// Address styling not present in IE 7/8/9, Firefox 3, and Safari 4. Known issue: no IE 6 support.
+// Hide the `template` element in IE, Safari, and Firefox < 22.
+[hidden], 
+template {
+	display: none; }
+
+
+/*  Base
+------------------------------------------------------------------------------ */
+
+html { 
+	// Prevent iOS text size adjust after orientation change, without disabling user zoom.
+	-webkit-text-size-adjust: 100%; 
+	    -ms-text-size-adjust: 100%; 
+	        text-size-adjust: 100%; 
+
+	// Set values from variables.scss
+	font-size:   $base-font-size; 
+	line-height: $base-line-height; 
+	font-weight: $font-normal-weight;
+	font-family: $font-body-copy; 
+	color:       $font-body-copy-color; 
+
+	background:  $body-bg; }
+
+// Address margins handled incorrectly in IE 6/7.
+body {
+	margin: 0; }
+
+// Customize selected elements. These selection rule sets have to be separate.
+::selection { 
+	background: $selection-bg; color: $selection-text; text-shadow: none; }
